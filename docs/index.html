@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Amelia Layne">
+<meta name="dcterms.date" content="2025-04-21">
+
+<title>AP601 Capstone</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="site_libs/plotly-binding-4.10.4/plotly.js"></script>
+
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">AP601 Capstone</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">AP601 Capstone</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Amelia Layne </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 21, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>AP 601 History of Higher Education</p>
+<p>Spring 2025</p>
+<p>Boston University</p>
+<p>Dr.&nbsp;Louise Michelle Vital</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(<span class="fu">library</span>(stringr)))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(<span class="fu">library</span>(tidyr)))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(<span class="fu">library</span>(ggplot2)))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(<span class="fu">library</span>(dplyr)))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(<span class="fu">library</span>(ggthemes)))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">suppressWarnings</span>(<span class="fu">library</span>(hrbrthemes)))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Read your data</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>faculty_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"F.Sal.80.csv"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign column names to a new object</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>colnames_cleaned <span class="ot">&lt;-</span> <span class="fu">colnames</span>(faculty_data)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean the column names using a regex to account for both "faculty" and "staff"</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>colnames_cleaned <span class="ot">&lt;-</span> <span class="fu">str_replace_all</span>(colnames_cleaned,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                <span class="st">"^Number</span><span class="sc">\\</span><span class="st">.of</span><span class="sc">\\</span><span class="st">.full</span><span class="sc">\\</span><span class="st">.time</span><span class="sc">\\</span><span class="st">.instructional</span><span class="sc">\\</span><span class="st">.(faculty|staff)</span><span class="sc">\\</span><span class="st">.(men|women|total)</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">.SAL(</span><span class="sc">\\</span><span class="st">d{4})_.*</span><span class="sc">\\</span><span class="st">.(Professor|Associate</span><span class="sc">\\</span><span class="st">.professor|Assistant</span><span class="sc">\\</span><span class="st">.professor).*"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Number_</span><span class="sc">\\</span><span class="st">3_</span><span class="sc">\\</span><span class="st">4_</span><span class="sc">\\</span><span class="st">2"</span>)  <span class="co"># Format: "Number_Year_Rank_Gender"</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean the column names using a regex to account for both "faculty" and "staff"</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>colnames_cleaned <span class="ot">&lt;-</span> <span class="fu">str_replace_all</span>(colnames_cleaned,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                <span class="st">"^Average</span><span class="sc">\\</span><span class="st">.salary</span><span class="sc">\\</span><span class="st">.of</span><span class="sc">\\</span><span class="st">.full</span><span class="sc">\\</span><span class="st">.time</span><span class="sc">\\</span><span class="st">.instructional</span><span class="sc">\\</span><span class="st">.(faculty|staff)</span><span class="sc">\\</span><span class="st">.(men|women|total)</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">.SAL(</span><span class="sc">\\</span><span class="st">d{4})_.*</span><span class="sc">\\</span><span class="st">.(Professor|Associate</span><span class="sc">\\</span><span class="st">.professor|Assistant</span><span class="sc">\\</span><span class="st">.professor).*"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Average_</span><span class="sc">\\</span><span class="st">3_</span><span class="sc">\\</span><span class="st">4_</span><span class="sc">\\</span><span class="st">2"</span>)  <span class="co"># Format: "Average_Year_Rank_Gender"</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the cleaned column names back to the data frame</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(faculty_data) <span class="ot">&lt;-</span> colnames_cleaned</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> faculty_data <span class="sc">%&gt;%</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"Average"</span>), </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"rank"</span>, <span class="st">"gender"</span>),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_pattern =</span> <span class="st">"Average_(</span><span class="sc">\\</span><span class="st">d{4})_(.*)_(.*)"</span>, </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"salary"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(long_data, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> salary, <span class="at">color =</span> gender, <span class="at">group =</span> gender)) <span class="sc">+</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Average Salary of Faculty Over Time"</span>,</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>, </span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average Salary"</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>rank) <span class="sc">+</span>  <span class="co"># Facet by rank (Professor, Associate Professor, Assistant Professor)</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="st">"women"</span> <span class="ot">=</span> <span class="st">"#993366"</span>,  <span class="co"># Soft red/pink for women</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="st">"men"</span> <span class="ot">=</span> <span class="st">"#5d437c"</span>,    <span class="co"># Muted green/gray for men</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">"total"</span> <span class="ot">=</span> <span class="st">"#6fa9b8"</span>   <span class="co"># Complementary soft teal for total</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>() <span class="sc">+</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),  <span class="co"># Rotate x-axis labels for readability</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#839496"</span>)  <span class="co"># Apply a clean color for facet labels (optional)</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  )  <span class="co"># Rotate x-axis labels to make them more readable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/tester-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>long_count <span class="ot">&lt;-</span> faculty_data <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"Number"</span>), </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"rank"</span>, <span class="st">"gender"</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_pattern =</span> <span class="st">"Number_(</span><span class="sc">\\</span><span class="st">d{4})_(.*)_(.*)"</span>, </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"n"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>long_combined <span class="ot">&lt;-</span> <span class="fu">left_join</span>(long_data, long_count, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"rank"</span>, <span class="st">"gender"</span>))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'plotly'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    last_plot</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    filter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:graphics':
+
+    layout</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(long_combined, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> salary, <span class="at">color =</span> gender, <span class="at">group =</span> gender,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                               <span class="at">text =</span> <span class="fu">paste</span>(<span class="st">"Year:"</span>, year,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"&lt;br&gt;Salary:"</span>, salary,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"&lt;br&gt;n:"</span>, n))) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>rank) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"women"</span> <span class="ot">=</span> <span class="st">"#993366"</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"men"</span> <span class="ot">=</span> <span class="st">"#5d437c"</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"total"</span> <span class="ot">=</span> <span class="st">"#6fa9b8"</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>()</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="st">"text"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-c526192d6dc246932972" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-c526192d6dc246932972">{"x":{"data":[{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[19837,27657,29505,32752,37210,39122,39628,40073,41216,42778,44525,45958,47317,48855,51630,58635,60383,61688,64186,67540,70798,73129,78297,83314,87242,90940],"text":["Year: 1980 <br>Salary: 19837 <br>n: 174","Year: 1984 <br>Salary: 27657 <br>n: 174","Year: 1985 <br>Salary: 29505 <br>n: 165","Year: 1987 <br>Salary: 32752 <br>n: 164","Year: 1989 <br>Salary: 37210 <br>n: 211","Year: 1990 <br>Salary: 39122 <br>n: 218","Year: 1991 <br>Salary: 39628 <br>n: 196","Year: 1992 <br>Salary: 40073 <br>n: 181","Year: 1993 <br>Salary: 41216 <br>n: 178","Year: 1994 <br>Salary: 42778 <br>n: 169","Year: 1995 <br>Salary: 44525 <br>n: 179","Year: 1996 <br>Salary: 45958 <br>n: 170","Year: 1997 <br>Salary: 47317 <br>n: 154","Year: 1998 <br>Salary: 48855 <br>n: 155","Year: 1999 <br>Salary: 51630 <br>n: 161","Year: 2001 <br>Salary: 58635 <br>n: 143","Year: 2002 <br>Salary: 60383 <br>n: 156","Year: 2003 <br>Salary: 61688 <br>n: 144","Year: 2004 <br>Salary: 64186 <br>n: 154","Year: 2005 <br>Salary: 67540 <br>n: 172","Year: 2006 <br>Salary: 70798 <br>n: 163","Year: 2007 <br>Salary: 73129 <br>n: 175","Year: 2008 <br>Salary: 78297 <br>n: 146","Year: 2009 <br>Salary: 83314 <br>n: 138","Year: 2010 <br>Salary: 87242 <br>n: 146","Year: 2011 <br>Salary: 90940 <br>n: 148"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(93,67,124,1)","dash":"solid"},"hoveron":"points","name":"men","legendgroup":"men","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[25466,34320,36651,40986,46971,48953,48536,48640,50723,52249,53877,55401,57648,60497,63842,69100,70897,70540,74258,80104,83061,87917,92568,96622,101107,106144],"text":["Year: 1980 <br>Salary: 25466 <br>n: 190","Year: 1984 <br>Salary: 34320 <br>n: 197","Year: 1985 <br>Salary: 36651 <br>n: 203","Year: 1987 <br>Salary: 40986 <br>n: 179","Year: 1989 <br>Salary: 46971 <br>n: 210","Year: 1990 <br>Salary: 48953 <br>n: 209","Year: 1991 <br>Salary: 48536 <br>n: 200","Year: 1992 <br>Salary: 48640 <br>n: 201","Year: 1993 <br>Salary: 50723 <br>n: 199","Year: 1994 <br>Salary: 52249 <br>n: 198","Year: 1995 <br>Salary: 53877 <br>n: 199","Year: 1996 <br>Salary: 55401 <br>n: 212","Year: 1997 <br>Salary: 57648 <br>n: 215","Year: 1998 <br>Salary: 60497 <br>n: 216","Year: 1999 <br>Salary: 63842 <br>n: 219","Year: 2001 <br>Salary: 69100 <br>n: 214","Year: 2002 <br>Salary: 70897 <br>n: 211","Year: 2003 <br>Salary: 70540 <br>n: 209","Year: 2004 <br>Salary: 74258 <br>n: 215","Year: 2005 <br>Salary: 80104 <br>n: 212","Year: 2006 <br>Salary: 83061 <br>n: 223","Year: 2007 <br>Salary: 87917 <br>n: 224","Year: 2008 <br>Salary: 92568 <br>n: 215","Year: 2009 <br>Salary: 96622 <br>n: 222","Year: 2010 <br>Salary: 101107 <br>n: 215","Year: 2011 <br>Salary: 106144 <br>n: 223"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(93,67,124,1)","dash":"solid"},"hoveron":"points","name":"men","legendgroup":"men","showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[34304,45379,47949,54482,63459,68086,68797,69255,71878,76230,79390,83863,87773,92656,96424,104477,108966,108455,112119,118997,124399,129544,138335,142214,145801,154229],"text":["Year: 1980 <br>Salary: 34304 <br>n: 261","Year: 1984 <br>Salary: 45379 <br>n: 283","Year: 1985 <br>Salary: 47949 <br>n: 281","Year: 1987 <br>Salary: 54482 <br>n: 256","Year: 1989 <br>Salary: 63459 <br>n: 296","Year: 1990 <br>Salary: 68086 <br>n: 305","Year: 1991 <br>Salary: 68797 <br>n: 319","Year: 1992 <br>Salary: 69255 <br>n: 310","Year: 1993 <br>Salary: 71878 <br>n: 314","Year: 1994 <br>Salary: 76230 <br>n: 331","Year: 1995 <br>Salary: 79390 <br>n: 336","Year: 1996 <br>Salary: 83863 <br>n: 332","Year: 1997 <br>Salary: 87773 <br>n: 334","Year: 1998 <br>Salary: 92656 <br>n: 337","Year: 1999 <br>Salary: 96424 <br>n: 351","Year: 2001 <br>Salary: 104477 <br>n: 360","Year: 2002 <br>Salary: 108966 <br>n: 363","Year: 2003 <br>Salary: 108455 <br>n: 351","Year: 2004 <br>Salary: 112119 <br>n: 381","Year: 2005 <br>Salary: 118997 <br>n: 369","Year: 2006 <br>Salary: 124399 <br>n: 363","Year: 2007 <br>Salary: 129544 <br>n: 371","Year: 2008 <br>Salary: 138335 <br>n: 357","Year: 2009 <br>Salary: 142214 <br>n: 362","Year: 2010 <br>Salary: 145801 <br>n: 361","Year: 2011 <br>Salary: 154229 <br>n: 351"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(93,67,124,1)","dash":"solid"},"hoveron":"points","name":"men","legendgroup":"men","showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[19623,27032,28848,32182,36448,38223,38488,38762,39893,41789,43458,44414,45303,46947,49030,54709,56962,58657,60757,64788,68131,70676,76688,82176,85349,88096],"text":["Year: 1980 <br>Salary: 19623 <br>n: 294","Year: 1984 <br>Salary: 27032 <br>n: 275","Year: 1985 <br>Salary: 28848 <br>n: 262","Year: 1987 <br>Salary: 32182 <br>n: 261","Year: 1989 <br>Salary: 36448 <br>n: 335","Year: 1990 <br>Salary: 38223 <br>n: 338","Year: 1991 <br>Salary: 38488 <br>n: 305","Year: 1992 <br>Salary: 38762 <br>n: 286","Year: 1993 <br>Salary: 39893 <br>n: 282","Year: 1994 <br>Salary: 41789 <br>n: 282","Year: 1995 <br>Salary: 43458 <br>n: 292","Year: 1996 <br>Salary: 44414 <br>n: 284","Year: 1997 <br>Salary: 45303 <br>n: 277","Year: 1998 <br>Salary: 46947 <br>n: 279","Year: 1999 <br>Salary: 49030 <br>n: 284","Year: 2001 <br>Salary: 54709 <br>n: 257","Year: 2002 <br>Salary: 56962 <br>n: 275","Year: 2003 <br>Salary: 58657 <br>n: 253","Year: 2004 <br>Salary: 60757 <br>n: 265","Year: 2005 <br>Salary: 64788 <br>n: 301","Year: 2006 <br>Salary: 68131 <br>n: 288","Year: 2007 <br>Salary: 70676 <br>n: 304","Year: 2008 <br>Salary: 76688 <br>n: 266","Year: 2009 <br>Salary: 82176 <br>n: 249","Year: 2010 <br>Salary: 85349 <br>n: 267","Year: 2011 <br>Salary: 88096 <br>n: 267"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(111,169,184,1)","dash":"solid"},"hoveron":"points","name":"total","legendgroup":"total","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[25279,34026,36441,40483,46157,47861,47427,47535,49594,51164,52539,53942,56098,58811,61709,66188,68468,68110,71815,77338,80736,84413,90409,94420,98790,104033],"text":["Year: 1980 <br>Salary: 25279 <br>n: 265","Year: 1984 <br>Salary: 34026 <br>n: 259","Year: 1985 <br>Salary: 36441 <br>n: 273","Year: 1987 <br>Salary: 40483 <br>n: 242","Year: 1989 <br>Salary: 46157 <br>n: 274","Year: 1990 <br>Salary: 47861 <br>n: 278","Year: 1991 <br>Salary: 47427 <br>n: 274","Year: 1992 <br>Salary: 47535 <br>n: 280","Year: 1993 <br>Salary: 49594 <br>n: 284","Year: 1994 <br>Salary: 51164 <br>n: 286","Year: 1995 <br>Salary: 52539 <br>n: 294","Year: 1996 <br>Salary: 53942 <br>n: 316","Year: 1997 <br>Salary: 56098 <br>n: 315","Year: 1998 <br>Salary: 58811 <br>n: 317","Year: 1999 <br>Salary: 61709 <br>n: 320","Year: 2001 <br>Salary: 66188 <br>n: 320","Year: 2002 <br>Salary: 68468 <br>n: 316","Year: 2003 <br>Salary: 68110 <br>n: 312","Year: 2004 <br>Salary: 71815 <br>n: 320","Year: 2005 <br>Salary: 77338 <br>n: 328","Year: 2006 <br>Salary: 80736 <br>n: 339","Year: 2007 <br>Salary: 84413 <br>n: 350","Year: 2008 <br>Salary: 90409 <br>n: 320","Year: 2009 <br>Salary: 94420 <br>n: 332","Year: 2010 <br>Salary: 98790 <br>n: 329","Year: 2011 <br>Salary: 104033 <br>n: 335"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(111,169,184,1)","dash":"solid"},"hoveron":"points","name":"total","legendgroup":"total","showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[33866,44867,47368,53808,62708,67171,67780,68183,70805,75117,78403,82916,86553,91297,94640,102724,106607,105586,108771,116415,121914,127059,135799,140102,143463,150871],"text":["Year: 1980 <br>Salary: 33866 <br>n: 301","Year: 1984 <br>Salary: 44867 <br>n: 324","Year: 1985 <br>Salary: 47368 <br>n: 321","Year: 1987 <br>Salary: 53808 <br>n: 292","Year: 1989 <br>Salary: 62708 <br>n: 334","Year: 1990 <br>Salary: 67171 <br>n: 345","Year: 1991 <br>Salary: 67780 <br>n: 360","Year: 1992 <br>Salary: 68183 <br>n: 351","Year: 1993 <br>Salary: 70805 <br>n: 361","Year: 1994 <br>Salary: 75117 <br>n: 380","Year: 1995 <br>Salary: 78403 <br>n: 388","Year: 1996 <br>Salary: 82916 <br>n: 382","Year: 1997 <br>Salary: 86553 <br>n: 385","Year: 1998 <br>Salary: 91297 <br>n: 388","Year: 1999 <br>Salary: 94640 <br>n: 410","Year: 2001 <br>Salary: 102724 <br>n: 424","Year: 2002 <br>Salary: 106607 <br>n: 426","Year: 2003 <br>Salary: 105586 <br>n: 420","Year: 2004 <br>Salary: 108771 <br>n: 457","Year: 2005 <br>Salary: 116415 <br>n: 441","Year: 2006 <br>Salary: 121914 <br>n: 440","Year: 2007 <br>Salary: 127059 <br>n: 453","Year: 2008 <br>Salary: 135799 <br>n: 437","Year: 2009 <br>Salary: 140102 <br>n: 445","Year: 2010 <br>Salary: 143463 <br>n: 448","Year: 2011 <br>Salary: 150871 <br>n: 441"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(111,169,184,1)","dash":"solid"},"hoveron":"points","name":"total","legendgroup":"total","showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[19313,25955,27730,31218,35150,36589,36438,36501,37630,40310,41768,42111,42783,44562,45627,49785,52478,54653,56001,61120,64654,67348,74731,80760,83065,84559],"text":["Year: 1980 <br>Salary: 19313 <br>n: 120","Year: 1984 <br>Salary: 25955 <br>n: 101","Year: 1985 <br>Salary: 27730 <br>n: 97","Year: 1987 <br>Salary: 31218 <br>n: 97","Year: 1989 <br>Salary: 35150 <br>n: 124","Year: 1990 <br>Salary: 36589 <br>n: 120","Year: 1991 <br>Salary: 36438 <br>n: 109","Year: 1992 <br>Salary: 36501 <br>n: 105","Year: 1993 <br>Salary: 37630 <br>n: 104","Year: 1994 <br>Salary: 40310 <br>n: 113","Year: 1995 <br>Salary: 41768 <br>n: 113","Year: 1996 <br>Salary: 42111 <br>n: 114","Year: 1997 <br>Salary: 42783 <br>n: 123","Year: 1998 <br>Salary: 44562 <br>n: 124","Year: 1999 <br>Salary: 45627 <br>n: 123","Year: 2001 <br>Salary: 49785 <br>n: 114","Year: 2002 <br>Salary: 52478 <br>n: 119","Year: 2003 <br>Salary: 54653 <br>n: 109","Year: 2004 <br>Salary: 56001 <br>n: 111","Year: 2005 <br>Salary: 61120 <br>n: 129","Year: 2006 <br>Salary: 64654 <br>n: 125","Year: 2007 <br>Salary: 67348 <br>n: 129","Year: 2008 <br>Salary: 74731 <br>n: 120","Year: 2009 <br>Salary: 80760 <br>n: 111","Year: 2010 <br>Salary: 83065 <br>n: 121","Year: 2011 <br>Salary: 84559 <br>n: 119"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(153,51,102,1)","dash":"solid"},"hoveron":"points","name":"women","legendgroup":"women","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[24803,33093,35831,39053,43484,44554,44430,44724,46949,48723,49735,50967,52765,55204,57085,60311,63586,63177,66812,72284,76268,78183,85987,89977,94421,99828],"text":["Year: 1980 <br>Salary: 24803 <br>n: 75","Year: 1984 <br>Salary: 33093 <br>n: 62","Year: 1985 <br>Salary: 35831 <br>n: 70","Year: 1987 <br>Salary: 39053 <br>n: 63","Year: 1989 <br>Salary: 43484 <br>n: 64","Year: 1990 <br>Salary: 44554 <br>n: 69","Year: 1991 <br>Salary: 44430 <br>n: 74","Year: 1992 <br>Salary: 44724 <br>n: 79","Year: 1993 <br>Salary: 46949 <br>n: 85","Year: 1994 <br>Salary: 48723 <br>n: 88","Year: 1995 <br>Salary: 49735 <br>n: 95","Year: 1996 <br>Salary: 50967 <br>n: 104","Year: 1997 <br>Salary: 52765 <br>n: 100","Year: 1998 <br>Salary: 55204 <br>n: 101","Year: 1999 <br>Salary: 57085 <br>n: 101","Year: 2001 <br>Salary: 60311 <br>n: 106","Year: 2002 <br>Salary: 63586 <br>n: 105","Year: 2003 <br>Salary: 63177 <br>n: 103","Year: 2004 <br>Salary: 66812 <br>n: 105","Year: 2005 <br>Salary: 72284 <br>n: 116","Year: 2006 <br>Salary: 76268 <br>n: 116","Year: 2007 <br>Salary: 78183 <br>n: 126","Year: 2008 <br>Salary: 85987 <br>n: 105","Year: 2009 <br>Salary: 89977 <br>n: 110","Year: 2010 <br>Salary: 94421 <br>n: 114","Year: 2011 <br>Salary: 99828 <br>n: 112"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(153,51,102,1)","dash":"solid"},"hoveron":"points","name":"women","legendgroup":"women","showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[31007,41337,43283,49015,56860,60200,59863,60073,63631,67602,72021,76622,78561,82324,84025,92864,93016,90990,91987,103184,110204,115816,124484,130889,133761,137775],"text":["Year: 1980 <br>Salary: 31007 <br>n: 40","Year: 1984 <br>Salary: 41337 <br>n: 41","Year: 1985 <br>Salary: 43283 <br>n: 40","Year: 1987 <br>Salary: 49015 <br>n: 36","Year: 1989 <br>Salary: 56860 <br>n: 38","Year: 1990 <br>Salary: 60200 <br>n: 40","Year: 1991 <br>Salary: 59863 <br>n: 41","Year: 1992 <br>Salary: 60073 <br>n: 41","Year: 1993 <br>Salary: 63631 <br>n: 47","Year: 1994 <br>Salary: 67602 <br>n: 49","Year: 1995 <br>Salary: 72021 <br>n: 52","Year: 1996 <br>Salary: 76622 <br>n: 50","Year: 1997 <br>Salary: 78561 <br>n: 51","Year: 1998 <br>Salary: 82324 <br>n: 51","Year: 1999 <br>Salary: 84025 <br>n: 59","Year: 2001 <br>Salary: 92864 <br>n: 64","Year: 2002 <br>Salary: 93016 <br>n: 63","Year: 2003 <br>Salary: 90990 <br>n: 69","Year: 2004 <br>Salary: 91987 <br>n: 76","Year: 2005 <br>Salary: 103184 <br>n: 72","Year: 2006 <br>Salary: 110204 <br>n: 77","Year: 2007 <br>Salary: 115816 <br>n: 82","Year: 2008 <br>Salary: 124484 <br>n: 80","Year: 2009 <br>Salary: 130889 <br>n: 83","Year: 2010 <br>Salary: 133761 <br>n: 87","Year: 2011 <br>Salary: 137775 <br>n: 90"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(153,51,102,1)","dash":"solid"},"hoveron":"points","name":"women","legendgroup":"women","showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[90940,87242,83314,78297,73129,70798,67540,64186,61688,60383,58635,51630,48855,47317,45958,44525,42778,41216,40073,39628,39122,37210,32752,29505,27657,19837],"text":["Year: 2011 <br>Salary: 90940 <br>n: 148","Year: 2010 <br>Salary: 87242 <br>n: 146","Year: 2009 <br>Salary: 83314 <br>n: 138","Year: 2008 <br>Salary: 78297 <br>n: 146","Year: 2007 <br>Salary: 73129 <br>n: 175","Year: 2006 <br>Salary: 70798 <br>n: 163","Year: 2005 <br>Salary: 67540 <br>n: 172","Year: 2004 <br>Salary: 64186 <br>n: 154","Year: 2003 <br>Salary: 61688 <br>n: 144","Year: 2002 <br>Salary: 60383 <br>n: 156","Year: 2001 <br>Salary: 58635 <br>n: 143","Year: 1999 <br>Salary: 51630 <br>n: 161","Year: 1998 <br>Salary: 48855 <br>n: 155","Year: 1997 <br>Salary: 47317 <br>n: 154","Year: 1996 <br>Salary: 45958 <br>n: 170","Year: 1995 <br>Salary: 44525 <br>n: 179","Year: 1994 <br>Salary: 42778 <br>n: 169","Year: 1993 <br>Salary: 41216 <br>n: 178","Year: 1992 <br>Salary: 40073 <br>n: 181","Year: 1991 <br>Salary: 39628 <br>n: 196","Year: 1990 <br>Salary: 39122 <br>n: 218","Year: 1989 <br>Salary: 37210 <br>n: 211","Year: 1987 <br>Salary: 32752 <br>n: 164","Year: 1985 <br>Salary: 29505 <br>n: 165","Year: 1984 <br>Salary: 27657 <br>n: 174","Year: 1980 <br>Salary: 19837 <br>n: 174"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(93,67,124,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(93,67,124,1)"}},"hoveron":"points","name":"men","legendgroup":"men","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[106144,101107,96622,92568,87917,83061,80104,74258,70540,70897,69100,63842,60497,57648,55401,53877,52249,50723,48640,48536,48953,46971,40986,36651,34320,25466],"text":["Year: 2011 <br>Salary: 106144 <br>n: 223","Year: 2010 <br>Salary: 101107 <br>n: 215","Year: 2009 <br>Salary: 96622 <br>n: 222","Year: 2008 <br>Salary: 92568 <br>n: 215","Year: 2007 <br>Salary: 87917 <br>n: 224","Year: 2006 <br>Salary: 83061 <br>n: 223","Year: 2005 <br>Salary: 80104 <br>n: 212","Year: 2004 <br>Salary: 74258 <br>n: 215","Year: 2003 <br>Salary: 70540 <br>n: 209","Year: 2002 <br>Salary: 70897 <br>n: 211","Year: 2001 <br>Salary: 69100 <br>n: 214","Year: 1999 <br>Salary: 63842 <br>n: 219","Year: 1998 <br>Salary: 60497 <br>n: 216","Year: 1997 <br>Salary: 57648 <br>n: 215","Year: 1996 <br>Salary: 55401 <br>n: 212","Year: 1995 <br>Salary: 53877 <br>n: 199","Year: 1994 <br>Salary: 52249 <br>n: 198","Year: 1993 <br>Salary: 50723 <br>n: 199","Year: 1992 <br>Salary: 48640 <br>n: 201","Year: 1991 <br>Salary: 48536 <br>n: 200","Year: 1990 <br>Salary: 48953 <br>n: 209","Year: 1989 <br>Salary: 46971 <br>n: 210","Year: 1987 <br>Salary: 40986 <br>n: 179","Year: 1985 <br>Salary: 36651 <br>n: 203","Year: 1984 <br>Salary: 34320 <br>n: 197","Year: 1980 <br>Salary: 25466 <br>n: 190"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(93,67,124,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(93,67,124,1)"}},"hoveron":"points","name":"men","legendgroup":"men","showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[154229,145801,142214,138335,129544,124399,118997,112119,108455,108966,104477,96424,92656,87773,83863,79390,76230,71878,69255,68797,68086,63459,54482,47949,45379,34304],"text":["Year: 2011 <br>Salary: 154229 <br>n: 351","Year: 2010 <br>Salary: 145801 <br>n: 361","Year: 2009 <br>Salary: 142214 <br>n: 362","Year: 2008 <br>Salary: 138335 <br>n: 357","Year: 2007 <br>Salary: 129544 <br>n: 371","Year: 2006 <br>Salary: 124399 <br>n: 363","Year: 2005 <br>Salary: 118997 <br>n: 369","Year: 2004 <br>Salary: 112119 <br>n: 381","Year: 2003 <br>Salary: 108455 <br>n: 351","Year: 2002 <br>Salary: 108966 <br>n: 363","Year: 2001 <br>Salary: 104477 <br>n: 360","Year: 1999 <br>Salary: 96424 <br>n: 351","Year: 1998 <br>Salary: 92656 <br>n: 337","Year: 1997 <br>Salary: 87773 <br>n: 334","Year: 1996 <br>Salary: 83863 <br>n: 332","Year: 1995 <br>Salary: 79390 <br>n: 336","Year: 1994 <br>Salary: 76230 <br>n: 331","Year: 1993 <br>Salary: 71878 <br>n: 314","Year: 1992 <br>Salary: 69255 <br>n: 310","Year: 1991 <br>Salary: 68797 <br>n: 319","Year: 1990 <br>Salary: 68086 <br>n: 305","Year: 1989 <br>Salary: 63459 <br>n: 296","Year: 1987 <br>Salary: 54482 <br>n: 256","Year: 1985 <br>Salary: 47949 <br>n: 281","Year: 1984 <br>Salary: 45379 <br>n: 283","Year: 1980 <br>Salary: 34304 <br>n: 261"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(93,67,124,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(93,67,124,1)"}},"hoveron":"points","name":"men","legendgroup":"men","showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[88096,85349,82176,76688,70676,68131,64788,60757,58657,56962,54709,49030,46947,45303,44414,43458,41789,39893,38762,38488,38223,36448,32182,28848,27032,19623],"text":["Year: 2011 <br>Salary: 88096 <br>n: 267","Year: 2010 <br>Salary: 85349 <br>n: 267","Year: 2009 <br>Salary: 82176 <br>n: 249","Year: 2008 <br>Salary: 76688 <br>n: 266","Year: 2007 <br>Salary: 70676 <br>n: 304","Year: 2006 <br>Salary: 68131 <br>n: 288","Year: 2005 <br>Salary: 64788 <br>n: 301","Year: 2004 <br>Salary: 60757 <br>n: 265","Year: 2003 <br>Salary: 58657 <br>n: 253","Year: 2002 <br>Salary: 56962 <br>n: 275","Year: 2001 <br>Salary: 54709 <br>n: 257","Year: 1999 <br>Salary: 49030 <br>n: 284","Year: 1998 <br>Salary: 46947 <br>n: 279","Year: 1997 <br>Salary: 45303 <br>n: 277","Year: 1996 <br>Salary: 44414 <br>n: 284","Year: 1995 <br>Salary: 43458 <br>n: 292","Year: 1994 <br>Salary: 41789 <br>n: 282","Year: 1993 <br>Salary: 39893 <br>n: 282","Year: 1992 <br>Salary: 38762 <br>n: 286","Year: 1991 <br>Salary: 38488 <br>n: 305","Year: 1990 <br>Salary: 38223 <br>n: 338","Year: 1989 <br>Salary: 36448 <br>n: 335","Year: 1987 <br>Salary: 32182 <br>n: 261","Year: 1985 <br>Salary: 28848 <br>n: 262","Year: 1984 <br>Salary: 27032 <br>n: 275","Year: 1980 <br>Salary: 19623 <br>n: 294"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(111,169,184,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(111,169,184,1)"}},"hoveron":"points","name":"total","legendgroup":"total","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[104033,98790,94420,90409,84413,80736,77338,71815,68110,68468,66188,61709,58811,56098,53942,52539,51164,49594,47535,47427,47861,46157,40483,36441,34026,25279],"text":["Year: 2011 <br>Salary: 104033 <br>n: 335","Year: 2010 <br>Salary: 98790 <br>n: 329","Year: 2009 <br>Salary: 94420 <br>n: 332","Year: 2008 <br>Salary: 90409 <br>n: 320","Year: 2007 <br>Salary: 84413 <br>n: 350","Year: 2006 <br>Salary: 80736 <br>n: 339","Year: 2005 <br>Salary: 77338 <br>n: 328","Year: 2004 <br>Salary: 71815 <br>n: 320","Year: 2003 <br>Salary: 68110 <br>n: 312","Year: 2002 <br>Salary: 68468 <br>n: 316","Year: 2001 <br>Salary: 66188 <br>n: 320","Year: 1999 <br>Salary: 61709 <br>n: 320","Year: 1998 <br>Salary: 58811 <br>n: 317","Year: 1997 <br>Salary: 56098 <br>n: 315","Year: 1996 <br>Salary: 53942 <br>n: 316","Year: 1995 <br>Salary: 52539 <br>n: 294","Year: 1994 <br>Salary: 51164 <br>n: 286","Year: 1993 <br>Salary: 49594 <br>n: 284","Year: 1992 <br>Salary: 47535 <br>n: 280","Year: 1991 <br>Salary: 47427 <br>n: 274","Year: 1990 <br>Salary: 47861 <br>n: 278","Year: 1989 <br>Salary: 46157 <br>n: 274","Year: 1987 <br>Salary: 40483 <br>n: 242","Year: 1985 <br>Salary: 36441 <br>n: 273","Year: 1984 <br>Salary: 34026 <br>n: 259","Year: 1980 <br>Salary: 25279 <br>n: 265"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(111,169,184,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(111,169,184,1)"}},"hoveron":"points","name":"total","legendgroup":"total","showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[150871,143463,140102,135799,127059,121914,116415,108771,105586,106607,102724,94640,91297,86553,82916,78403,75117,70805,68183,67780,67171,62708,53808,47368,44867,33866],"text":["Year: 2011 <br>Salary: 150871 <br>n: 441","Year: 2010 <br>Salary: 143463 <br>n: 448","Year: 2009 <br>Salary: 140102 <br>n: 445","Year: 2008 <br>Salary: 135799 <br>n: 437","Year: 2007 <br>Salary: 127059 <br>n: 453","Year: 2006 <br>Salary: 121914 <br>n: 440","Year: 2005 <br>Salary: 116415 <br>n: 441","Year: 2004 <br>Salary: 108771 <br>n: 457","Year: 2003 <br>Salary: 105586 <br>n: 420","Year: 2002 <br>Salary: 106607 <br>n: 426","Year: 2001 <br>Salary: 102724 <br>n: 424","Year: 1999 <br>Salary: 94640 <br>n: 410","Year: 1998 <br>Salary: 91297 <br>n: 388","Year: 1997 <br>Salary: 86553 <br>n: 385","Year: 1996 <br>Salary: 82916 <br>n: 382","Year: 1995 <br>Salary: 78403 <br>n: 388","Year: 1994 <br>Salary: 75117 <br>n: 380","Year: 1993 <br>Salary: 70805 <br>n: 361","Year: 1992 <br>Salary: 68183 <br>n: 351","Year: 1991 <br>Salary: 67780 <br>n: 360","Year: 1990 <br>Salary: 67171 <br>n: 345","Year: 1989 <br>Salary: 62708 <br>n: 334","Year: 1987 <br>Salary: 53808 <br>n: 292","Year: 1985 <br>Salary: 47368 <br>n: 321","Year: 1984 <br>Salary: 44867 <br>n: 324","Year: 1980 <br>Salary: 33866 <br>n: 301"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(111,169,184,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(111,169,184,1)"}},"hoveron":"points","name":"total","legendgroup":"total","showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[84559,83065,80760,74731,67348,64654,61120,56001,54653,52478,49785,45627,44562,42783,42111,41768,40310,37630,36501,36438,36589,35150,31218,27730,25955,19313],"text":["Year: 2011 <br>Salary: 84559 <br>n: 119","Year: 2010 <br>Salary: 83065 <br>n: 121","Year: 2009 <br>Salary: 80760 <br>n: 111","Year: 2008 <br>Salary: 74731 <br>n: 120","Year: 2007 <br>Salary: 67348 <br>n: 129","Year: 2006 <br>Salary: 64654 <br>n: 125","Year: 2005 <br>Salary: 61120 <br>n: 129","Year: 2004 <br>Salary: 56001 <br>n: 111","Year: 2003 <br>Salary: 54653 <br>n: 109","Year: 2002 <br>Salary: 52478 <br>n: 119","Year: 2001 <br>Salary: 49785 <br>n: 114","Year: 1999 <br>Salary: 45627 <br>n: 123","Year: 1998 <br>Salary: 44562 <br>n: 124","Year: 1997 <br>Salary: 42783 <br>n: 123","Year: 1996 <br>Salary: 42111 <br>n: 114","Year: 1995 <br>Salary: 41768 <br>n: 113","Year: 1994 <br>Salary: 40310 <br>n: 113","Year: 1993 <br>Salary: 37630 <br>n: 104","Year: 1992 <br>Salary: 36501 <br>n: 105","Year: 1991 <br>Salary: 36438 <br>n: 109","Year: 1990 <br>Salary: 36589 <br>n: 120","Year: 1989 <br>Salary: 35150 <br>n: 124","Year: 1987 <br>Salary: 31218 <br>n: 97","Year: 1985 <br>Salary: 27730 <br>n: 97","Year: 1984 <br>Salary: 25955 <br>n: 101","Year: 1980 <br>Salary: 19313 <br>n: 120"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(153,51,102,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(153,51,102,1)"}},"hoveron":"points","name":"women","legendgroup":"women","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[99828,94421,89977,85987,78183,76268,72284,66812,63177,63586,60311,57085,55204,52765,50967,49735,48723,46949,44724,44430,44554,43484,39053,35831,33093,24803],"text":["Year: 2011 <br>Salary: 99828 <br>n: 112","Year: 2010 <br>Salary: 94421 <br>n: 114","Year: 2009 <br>Salary: 89977 <br>n: 110","Year: 2008 <br>Salary: 85987 <br>n: 105","Year: 2007 <br>Salary: 78183 <br>n: 126","Year: 2006 <br>Salary: 76268 <br>n: 116","Year: 2005 <br>Salary: 72284 <br>n: 116","Year: 2004 <br>Salary: 66812 <br>n: 105","Year: 2003 <br>Salary: 63177 <br>n: 103","Year: 2002 <br>Salary: 63586 <br>n: 105","Year: 2001 <br>Salary: 60311 <br>n: 106","Year: 1999 <br>Salary: 57085 <br>n: 101","Year: 1998 <br>Salary: 55204 <br>n: 101","Year: 1997 <br>Salary: 52765 <br>n: 100","Year: 1996 <br>Salary: 50967 <br>n: 104","Year: 1995 <br>Salary: 49735 <br>n: 95","Year: 1994 <br>Salary: 48723 <br>n: 88","Year: 1993 <br>Salary: 46949 <br>n: 85","Year: 1992 <br>Salary: 44724 <br>n: 79","Year: 1991 <br>Salary: 44430 <br>n: 74","Year: 1990 <br>Salary: 44554 <br>n: 69","Year: 1989 <br>Salary: 43484 <br>n: 64","Year: 1987 <br>Salary: 39053 <br>n: 63","Year: 1985 <br>Salary: 35831 <br>n: 70","Year: 1984 <br>Salary: 33093 <br>n: 62","Year: 1980 <br>Salary: 24803 <br>n: 75"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(153,51,102,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(153,51,102,1)"}},"hoveron":"points","name":"women","legendgroup":"women","showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[137775,133761,130889,124484,115816,110204,103184,91987,90990,93016,92864,84025,82324,78561,76622,72021,67602,63631,60073,59863,60200,56860,49015,43283,41337,31007],"text":["Year: 2011 <br>Salary: 137775 <br>n: 90","Year: 2010 <br>Salary: 133761 <br>n: 87","Year: 2009 <br>Salary: 130889 <br>n: 83","Year: 2008 <br>Salary: 124484 <br>n: 80","Year: 2007 <br>Salary: 115816 <br>n: 82","Year: 2006 <br>Salary: 110204 <br>n: 77","Year: 2005 <br>Salary: 103184 <br>n: 72","Year: 2004 <br>Salary: 91987 <br>n: 76","Year: 2003 <br>Salary: 90990 <br>n: 69","Year: 2002 <br>Salary: 93016 <br>n: 63","Year: 2001 <br>Salary: 92864 <br>n: 64","Year: 1999 <br>Salary: 84025 <br>n: 59","Year: 1998 <br>Salary: 82324 <br>n: 51","Year: 1997 <br>Salary: 78561 <br>n: 51","Year: 1996 <br>Salary: 76622 <br>n: 50","Year: 1995 <br>Salary: 72021 <br>n: 52","Year: 1994 <br>Salary: 67602 <br>n: 49","Year: 1993 <br>Salary: 63631 <br>n: 47","Year: 1992 <br>Salary: 60073 <br>n: 41","Year: 1991 <br>Salary: 59863 <br>n: 41","Year: 1990 <br>Salary: 60200 <br>n: 40","Year: 1989 <br>Salary: 56860 <br>n: 38","Year: 1987 <br>Salary: 49015 <br>n: 36","Year: 1985 <br>Salary: 43283 <br>n: 40","Year: 1984 <br>Salary: 41337 <br>n: 41","Year: 1980 <br>Salary: 31007 <br>n: 40"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(153,51,102,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(153,51,102,1)"}},"hoveron":"points","name":"women","legendgroup":"women","showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":39.910336239103373,"r":7.9701120797011216,"b":43.835616438356169,"l":66.151930261519325},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"xaxis":{"domain":[0,0.32888572614600009],"automargin":true,"type":"linear","autorange":false,"range":[1978.45,2012.55],"tickmode":"array","ticktext":["1980","1990","2000","2010"],"tickvals":[1980,1990,2000,2010],"categoryorder":"array","categoryarray":["1980","1990","2000","2010"],"nticks":null,"ticks":"outside","tickcolor":"rgba(77,77,77,1)","ticklen":3.9850560398505608,"tickwidth":0.72455564360919278,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"annotations":[{"text":"year","x":0.5,"y":0,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"top","annotationType":"axis","yshift":-23.910336239103373},{"text":"salary","x":0,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis","xshift":-49.414694894146969},{"text":"Assistant.professor","x":0.16444286307300005,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":12.7521793275218},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Associate.professor","x":0.5,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":12.7521793275218},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Professor","x":0.83555713692699984,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":12.7521793275218},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"}],"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[12567.200000000001,160974.79999999999],"tickmode":"array","ticktext":["40000","80000","120000","160000"],"tickvals":[40000,80000,120000,160000],"categoryorder":"array","categoryarray":["40000","80000","120000","160000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(77,77,77,1)","ticklen":3.9850560398505608,"tickwidth":0.72455564360919278,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(77,77,77,1)","width":0.72455564360919278,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":0.32888572614600009,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"transparent","width":0.72455564360919278,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":0.32888572614600009,"y0":0,"y1":25.5043586550436,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(77,77,77,1)","width":0.72455564360919278,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.33778094052066654,"x1":0.66221905947933346,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"transparent","width":0.72455564360919278,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.33778094052066654,"x1":0.66221905947933346,"y0":0,"y1":25.5043586550436,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(77,77,77,1)","width":0.72455564360919278,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.6711142738539998,"x1":1,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"transparent","width":0.72455564360919278,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.6711142738539998,"x1":1,"y0":0,"y1":25.5043586550436,"yanchor":1,"ysizemode":"pixel"}],"xaxis2":{"type":"linear","autorange":false,"range":[1978.45,2012.55],"tickmode":"array","ticktext":["1980","1990","2000","2010"],"tickvals":[1980,1990,2000,2010],"categoryorder":"array","categoryarray":["1980","1990","2000","2010"],"nticks":null,"ticks":"outside","tickcolor":"rgba(77,77,77,1)","ticklen":3.9850560398505608,"tickwidth":0.72455564360919278,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"domain":[0.33778094052066654,0.66221905947933346],"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"xaxis3":{"type":"linear","autorange":false,"range":[1978.45,2012.55],"tickmode":"array","ticktext":["1980","1990","2000","2010"],"tickvals":[1980,1990,2000,2010],"categoryorder":"array","categoryarray":["1980","1990","2000","2010"],"nticks":null,"ticks":"outside","tickcolor":"rgba(77,77,77,1)","ticklen":3.9850560398505608,"tickwidth":0.72455564360919278,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"domain":[0.6711142738539998,1],"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":2.0615604867573372,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"gender","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3c102fbd1d66":{"x":{},"y":{},"colour":{},"text":{},"type":"scatter"},"3c103dcd5764":{"x":{},"y":{},"colour":{},"text":{}}},"cur_data":"3c102fbd1d66","visdat":{"3c102fbd1d66":["function (y) ","x"],"3c103dcd5764":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Salary plot (interactive)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>p_salary <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(long_combined, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> salary, <span class="at">color =</span> gender, <span class="at">group =</span> gender,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">text =</span> <span class="fu">paste</span>(<span class="st">"Year:"</span>, year,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                                                   <span class="st">"&lt;br&gt;Salary:"</span>, salary,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                                                   <span class="st">"&lt;br&gt;n:"</span>, n))) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>rank) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Salary Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Salary"</span>) <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"women"</span> <span class="ot">=</span> <span class="st">"#993366"</span>, <span class="st">"men"</span> <span class="ot">=</span> <span class="st">"#5d437c"</span>, <span class="st">"total"</span> <span class="ot">=</span> <span class="st">"#6fa9b8"</span>)) <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>()</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new dataframe for just the faculty count by gender</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>gender_count_data <span class="ot">&lt;-</span> long_combined <span class="sc">%&gt;%</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gender <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"women"</span>, <span class="st">"men"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, rank, gender, n)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the interactive plot for the number of men vs women</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>gender_count_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gender_count_data, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n, <span class="at">color =</span> gender, <span class="at">group =</span> gender,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>                                                   <span class="at">text =</span> <span class="fu">paste</span>(<span class="st">"Year:"</span>, year,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>                                                                <span class="st">"&lt;br&gt;Count:"</span>, n))) <span class="sc">+</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>rank) <span class="sc">+</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Number of Faculty by Gender Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Faculty Count"</span>) <span class="sc">+</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"women"</span> <span class="ot">=</span> <span class="st">"#993366"</span>, <span class="st">"men"</span> <span class="ot">=</span> <span class="st">"#5d437c"</span>)) <span class="sc">+</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_few</span>()</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the ggplot to plotly</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>interactive_gender_plot <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(gender_count_plot, <span class="at">tooltip =</span> <span class="st">"text"</span>)</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the interactive plot</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>interactive_gender_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-b3cdd1c8cd69594da9aa" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-b3cdd1c8cd69594da9aa">{"x":{"data":[{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[174,174,165,164,211,218,196,181,178,169,179,170,154,155,161,143,156,144,154,172,163,175,146,138,146,148],"text":["Year: 1980 <br>Count: 174","Year: 1984 <br>Count: 174","Year: 1985 <br>Count: 165","Year: 1987 <br>Count: 164","Year: 1989 <br>Count: 211","Year: 1990 <br>Count: 218","Year: 1991 <br>Count: 196","Year: 1992 <br>Count: 181","Year: 1993 <br>Count: 178","Year: 1994 <br>Count: 169","Year: 1995 <br>Count: 179","Year: 1996 <br>Count: 170","Year: 1997 <br>Count: 154","Year: 1998 <br>Count: 155","Year: 1999 <br>Count: 161","Year: 2001 <br>Count: 143","Year: 2002 <br>Count: 156","Year: 2003 <br>Count: 144","Year: 2004 <br>Count: 154","Year: 2005 <br>Count: 172","Year: 2006 <br>Count: 163","Year: 2007 <br>Count: 175","Year: 2008 <br>Count: 146","Year: 2009 <br>Count: 138","Year: 2010 <br>Count: 146","Year: 2011 <br>Count: 148"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(93,67,124,1)","dash":"solid"},"hoveron":"points","name":"men","legendgroup":"men","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[190,197,203,179,210,209,200,201,199,198,199,212,215,216,219,214,211,209,215,212,223,224,215,222,215,223],"text":["Year: 1980 <br>Count: 190","Year: 1984 <br>Count: 197","Year: 1985 <br>Count: 203","Year: 1987 <br>Count: 179","Year: 1989 <br>Count: 210","Year: 1990 <br>Count: 209","Year: 1991 <br>Count: 200","Year: 1992 <br>Count: 201","Year: 1993 <br>Count: 199","Year: 1994 <br>Count: 198","Year: 1995 <br>Count: 199","Year: 1996 <br>Count: 212","Year: 1997 <br>Count: 215","Year: 1998 <br>Count: 216","Year: 1999 <br>Count: 219","Year: 2001 <br>Count: 214","Year: 2002 <br>Count: 211","Year: 2003 <br>Count: 209","Year: 2004 <br>Count: 215","Year: 2005 <br>Count: 212","Year: 2006 <br>Count: 223","Year: 2007 <br>Count: 224","Year: 2008 <br>Count: 215","Year: 2009 <br>Count: 222","Year: 2010 <br>Count: 215","Year: 2011 <br>Count: 223"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(93,67,124,1)","dash":"solid"},"hoveron":"points","name":"men","legendgroup":"men","showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[261,283,281,256,296,305,319,310,314,331,336,332,334,337,351,360,363,351,381,369,363,371,357,362,361,351],"text":["Year: 1980 <br>Count: 261","Year: 1984 <br>Count: 283","Year: 1985 <br>Count: 281","Year: 1987 <br>Count: 256","Year: 1989 <br>Count: 296","Year: 1990 <br>Count: 305","Year: 1991 <br>Count: 319","Year: 1992 <br>Count: 310","Year: 1993 <br>Count: 314","Year: 1994 <br>Count: 331","Year: 1995 <br>Count: 336","Year: 1996 <br>Count: 332","Year: 1997 <br>Count: 334","Year: 1998 <br>Count: 337","Year: 1999 <br>Count: 351","Year: 2001 <br>Count: 360","Year: 2002 <br>Count: 363","Year: 2003 <br>Count: 351","Year: 2004 <br>Count: 381","Year: 2005 <br>Count: 369","Year: 2006 <br>Count: 363","Year: 2007 <br>Count: 371","Year: 2008 <br>Count: 357","Year: 2009 <br>Count: 362","Year: 2010 <br>Count: 361","Year: 2011 <br>Count: 351"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(93,67,124,1)","dash":"solid"},"hoveron":"points","name":"men","legendgroup":"men","showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[120,101,97,97,124,120,109,105,104,113,113,114,123,124,123,114,119,109,111,129,125,129,120,111,121,119],"text":["Year: 1980 <br>Count: 120","Year: 1984 <br>Count: 101","Year: 1985 <br>Count: 97","Year: 1987 <br>Count: 97","Year: 1989 <br>Count: 124","Year: 1990 <br>Count: 120","Year: 1991 <br>Count: 109","Year: 1992 <br>Count: 105","Year: 1993 <br>Count: 104","Year: 1994 <br>Count: 113","Year: 1995 <br>Count: 113","Year: 1996 <br>Count: 114","Year: 1997 <br>Count: 123","Year: 1998 <br>Count: 124","Year: 1999 <br>Count: 123","Year: 2001 <br>Count: 114","Year: 2002 <br>Count: 119","Year: 2003 <br>Count: 109","Year: 2004 <br>Count: 111","Year: 2005 <br>Count: 129","Year: 2006 <br>Count: 125","Year: 2007 <br>Count: 129","Year: 2008 <br>Count: 120","Year: 2009 <br>Count: 111","Year: 2010 <br>Count: 121","Year: 2011 <br>Count: 119"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(153,51,102,1)","dash":"solid"},"hoveron":"points","name":"women","legendgroup":"women","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[75,62,70,63,64,69,74,79,85,88,95,104,100,101,101,106,105,103,105,116,116,126,105,110,114,112],"text":["Year: 1980 <br>Count: 75","Year: 1984 <br>Count: 62","Year: 1985 <br>Count: 70","Year: 1987 <br>Count: 63","Year: 1989 <br>Count: 64","Year: 1990 <br>Count: 69","Year: 1991 <br>Count: 74","Year: 1992 <br>Count: 79","Year: 1993 <br>Count: 85","Year: 1994 <br>Count: 88","Year: 1995 <br>Count: 95","Year: 1996 <br>Count: 104","Year: 1997 <br>Count: 100","Year: 1998 <br>Count: 101","Year: 1999 <br>Count: 101","Year: 2001 <br>Count: 106","Year: 2002 <br>Count: 105","Year: 2003 <br>Count: 103","Year: 2004 <br>Count: 105","Year: 2005 <br>Count: 116","Year: 2006 <br>Count: 116","Year: 2007 <br>Count: 126","Year: 2008 <br>Count: 105","Year: 2009 <br>Count: 110","Year: 2010 <br>Count: 114","Year: 2011 <br>Count: 112"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(153,51,102,1)","dash":"solid"},"hoveron":"points","name":"women","legendgroup":"women","showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1980,1984,1985,1987,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011],"y":[40,41,40,36,38,40,41,41,47,49,52,50,51,51,59,64,63,69,76,72,77,82,80,83,87,90],"text":["Year: 1980 <br>Count: 40","Year: 1984 <br>Count: 41","Year: 1985 <br>Count: 40","Year: 1987 <br>Count: 36","Year: 1989 <br>Count: 38","Year: 1990 <br>Count: 40","Year: 1991 <br>Count: 41","Year: 1992 <br>Count: 41","Year: 1993 <br>Count: 47","Year: 1994 <br>Count: 49","Year: 1995 <br>Count: 52","Year: 1996 <br>Count: 50","Year: 1997 <br>Count: 51","Year: 1998 <br>Count: 51","Year: 1999 <br>Count: 59","Year: 2001 <br>Count: 64","Year: 2002 <br>Count: 63","Year: 2003 <br>Count: 69","Year: 2004 <br>Count: 76","Year: 2005 <br>Count: 72","Year: 2006 <br>Count: 77","Year: 2007 <br>Count: 82","Year: 2008 <br>Count: 80","Year: 2009 <br>Count: 83","Year: 2010 <br>Count: 87","Year: 2011 <br>Count: 90"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(153,51,102,1)","dash":"solid"},"hoveron":"points","name":"women","legendgroup":"women","showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[148,146,138,146,175,163,172,154,144,156,143,161,155,154,170,179,169,178,181,196,218,211,164,165,174,174],"text":["Year: 2011 <br>Count: 148","Year: 2010 <br>Count: 146","Year: 2009 <br>Count: 138","Year: 2008 <br>Count: 146","Year: 2007 <br>Count: 175","Year: 2006 <br>Count: 163","Year: 2005 <br>Count: 172","Year: 2004 <br>Count: 154","Year: 2003 <br>Count: 144","Year: 2002 <br>Count: 156","Year: 2001 <br>Count: 143","Year: 1999 <br>Count: 161","Year: 1998 <br>Count: 155","Year: 1997 <br>Count: 154","Year: 1996 <br>Count: 170","Year: 1995 <br>Count: 179","Year: 1994 <br>Count: 169","Year: 1993 <br>Count: 178","Year: 1992 <br>Count: 181","Year: 1991 <br>Count: 196","Year: 1990 <br>Count: 218","Year: 1989 <br>Count: 211","Year: 1987 <br>Count: 164","Year: 1985 <br>Count: 165","Year: 1984 <br>Count: 174","Year: 1980 <br>Count: 174"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(93,67,124,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(93,67,124,1)"}},"hoveron":"points","name":"men","legendgroup":"men","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[223,215,222,215,224,223,212,215,209,211,214,219,216,215,212,199,198,199,201,200,209,210,179,203,197,190],"text":["Year: 2011 <br>Count: 223","Year: 2010 <br>Count: 215","Year: 2009 <br>Count: 222","Year: 2008 <br>Count: 215","Year: 2007 <br>Count: 224","Year: 2006 <br>Count: 223","Year: 2005 <br>Count: 212","Year: 2004 <br>Count: 215","Year: 2003 <br>Count: 209","Year: 2002 <br>Count: 211","Year: 2001 <br>Count: 214","Year: 1999 <br>Count: 219","Year: 1998 <br>Count: 216","Year: 1997 <br>Count: 215","Year: 1996 <br>Count: 212","Year: 1995 <br>Count: 199","Year: 1994 <br>Count: 198","Year: 1993 <br>Count: 199","Year: 1992 <br>Count: 201","Year: 1991 <br>Count: 200","Year: 1990 <br>Count: 209","Year: 1989 <br>Count: 210","Year: 1987 <br>Count: 179","Year: 1985 <br>Count: 203","Year: 1984 <br>Count: 197","Year: 1980 <br>Count: 190"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(93,67,124,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(93,67,124,1)"}},"hoveron":"points","name":"men","legendgroup":"men","showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[351,361,362,357,371,363,369,381,351,363,360,351,337,334,332,336,331,314,310,319,305,296,256,281,283,261],"text":["Year: 2011 <br>Count: 351","Year: 2010 <br>Count: 361","Year: 2009 <br>Count: 362","Year: 2008 <br>Count: 357","Year: 2007 <br>Count: 371","Year: 2006 <br>Count: 363","Year: 2005 <br>Count: 369","Year: 2004 <br>Count: 381","Year: 2003 <br>Count: 351","Year: 2002 <br>Count: 363","Year: 2001 <br>Count: 360","Year: 1999 <br>Count: 351","Year: 1998 <br>Count: 337","Year: 1997 <br>Count: 334","Year: 1996 <br>Count: 332","Year: 1995 <br>Count: 336","Year: 1994 <br>Count: 331","Year: 1993 <br>Count: 314","Year: 1992 <br>Count: 310","Year: 1991 <br>Count: 319","Year: 1990 <br>Count: 305","Year: 1989 <br>Count: 296","Year: 1987 <br>Count: 256","Year: 1985 <br>Count: 281","Year: 1984 <br>Count: 283","Year: 1980 <br>Count: 261"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(93,67,124,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(93,67,124,1)"}},"hoveron":"points","name":"men","legendgroup":"men","showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[119,121,111,120,129,125,129,111,109,119,114,123,124,123,114,113,113,104,105,109,120,124,97,97,101,120],"text":["Year: 2011 <br>Count: 119","Year: 2010 <br>Count: 121","Year: 2009 <br>Count: 111","Year: 2008 <br>Count: 120","Year: 2007 <br>Count: 129","Year: 2006 <br>Count: 125","Year: 2005 <br>Count: 129","Year: 2004 <br>Count: 111","Year: 2003 <br>Count: 109","Year: 2002 <br>Count: 119","Year: 2001 <br>Count: 114","Year: 1999 <br>Count: 123","Year: 1998 <br>Count: 124","Year: 1997 <br>Count: 123","Year: 1996 <br>Count: 114","Year: 1995 <br>Count: 113","Year: 1994 <br>Count: 113","Year: 1993 <br>Count: 104","Year: 1992 <br>Count: 105","Year: 1991 <br>Count: 109","Year: 1990 <br>Count: 120","Year: 1989 <br>Count: 124","Year: 1987 <br>Count: 97","Year: 1985 <br>Count: 97","Year: 1984 <br>Count: 101","Year: 1980 <br>Count: 120"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(153,51,102,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(153,51,102,1)"}},"hoveron":"points","name":"women","legendgroup":"women","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[112,114,110,105,126,116,116,105,103,105,106,101,101,100,104,95,88,85,79,74,69,64,63,70,62,75],"text":["Year: 2011 <br>Count: 112","Year: 2010 <br>Count: 114","Year: 2009 <br>Count: 110","Year: 2008 <br>Count: 105","Year: 2007 <br>Count: 126","Year: 2006 <br>Count: 116","Year: 2005 <br>Count: 116","Year: 2004 <br>Count: 105","Year: 2003 <br>Count: 103","Year: 2002 <br>Count: 105","Year: 2001 <br>Count: 106","Year: 1999 <br>Count: 101","Year: 1998 <br>Count: 101","Year: 1997 <br>Count: 100","Year: 1996 <br>Count: 104","Year: 1995 <br>Count: 95","Year: 1994 <br>Count: 88","Year: 1993 <br>Count: 85","Year: 1992 <br>Count: 79","Year: 1991 <br>Count: 74","Year: 1990 <br>Count: 69","Year: 1989 <br>Count: 64","Year: 1987 <br>Count: 63","Year: 1985 <br>Count: 70","Year: 1984 <br>Count: 62","Year: 1980 <br>Count: 75"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(153,51,102,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(153,51,102,1)"}},"hoveron":"points","name":"women","legendgroup":"women","showlegend":false,"xaxis":"x2","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1987,1985,1984,1980],"y":[90,87,83,80,82,77,72,76,69,63,64,59,51,51,50,52,49,47,41,41,40,38,36,40,41,40],"text":["Year: 2011 <br>Count: 90","Year: 2010 <br>Count: 87","Year: 2009 <br>Count: 83","Year: 2008 <br>Count: 80","Year: 2007 <br>Count: 82","Year: 2006 <br>Count: 77","Year: 2005 <br>Count: 72","Year: 2004 <br>Count: 76","Year: 2003 <br>Count: 69","Year: 2002 <br>Count: 63","Year: 2001 <br>Count: 64","Year: 1999 <br>Count: 59","Year: 1998 <br>Count: 51","Year: 1997 <br>Count: 51","Year: 1996 <br>Count: 50","Year: 1995 <br>Count: 52","Year: 1994 <br>Count: 49","Year: 1993 <br>Count: 47","Year: 1992 <br>Count: 41","Year: 1991 <br>Count: 41","Year: 1990 <br>Count: 40","Year: 1989 <br>Count: 38","Year: 1987 <br>Count: 36","Year: 1985 <br>Count: 40","Year: 1984 <br>Count: 41","Year: 1980 <br>Count: 40"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(153,51,102,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(153,51,102,1)"}},"hoveron":"points","name":"women","legendgroup":"women","showlegend":false,"xaxis":"x3","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":59.038605230386061,"r":7.9701120797011216,"b":43.835616438356169,"l":47.023661270236623},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"Number of Faculty by Gender Over Time","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,0.32888572614600009],"automargin":true,"type":"linear","autorange":false,"range":[1978.45,2012.55],"tickmode":"array","ticktext":["1980","1990","2000","2010"],"tickvals":[1980,1990,2000,2010],"categoryorder":"array","categoryarray":["1980","1990","2000","2010"],"nticks":null,"ticks":"outside","tickcolor":"rgba(77,77,77,1)","ticklen":3.9850560398505608,"tickwidth":0.72455564360919278,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"annotations":[{"text":"Year","x":0.5,"y":0,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"top","annotationType":"axis","yshift":-23.910336239103373},{"text":"Faculty Count","x":0,"y":0.5,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"xref":"paper","yref":"paper","textangle":-90,"xanchor":"right","yanchor":"center","annotationType":"axis","xshift":-30.28642590286427},{"text":"Assistant.professor","x":0.16444286307300005,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":12.7521793275218},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Associate.professor","x":0.5,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":12.7521793275218},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"},{"text":"Professor","x":0.83555713692699984,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(26,26,26,1)","family":"","size":12.7521793275218},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"center","yanchor":"bottom"}],"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[18.75,398.25],"tickmode":"array","ticktext":["100","200","300"],"tickvals":[100,200,300],"categoryorder":"array","categoryarray":["100","200","300"],"nticks":null,"ticks":"outside","tickcolor":"rgba(77,77,77,1)","ticklen":3.9850560398505608,"tickwidth":0.72455564360919278,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":"","hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(77,77,77,1)","width":0.72455564360919278,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":0.32888572614600009,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"transparent","width":0.72455564360919278,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":0.32888572614600009,"y0":0,"y1":25.5043586550436,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(77,77,77,1)","width":0.72455564360919278,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.33778094052066654,"x1":0.66221905947933346,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"transparent","width":0.72455564360919278,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.33778094052066654,"x1":0.66221905947933346,"y0":0,"y1":25.5043586550436,"yanchor":1,"ysizemode":"pixel"},{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(77,77,77,1)","width":0.72455564360919278,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.6711142738539998,"x1":1,"y0":0,"y1":1},{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"transparent","width":0.72455564360919278,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0.6711142738539998,"x1":1,"y0":0,"y1":25.5043586550436,"yanchor":1,"ysizemode":"pixel"}],"xaxis2":{"type":"linear","autorange":false,"range":[1978.45,2012.55],"tickmode":"array","ticktext":["1980","1990","2000","2010"],"tickvals":[1980,1990,2000,2010],"categoryorder":"array","categoryarray":["1980","1990","2000","2010"],"nticks":null,"ticks":"outside","tickcolor":"rgba(77,77,77,1)","ticklen":3.9850560398505608,"tickwidth":0.72455564360919278,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"domain":[0.33778094052066654,0.66221905947933346],"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"xaxis3":{"type":"linear","autorange":false,"range":[1978.45,2012.55],"tickmode":"array","ticktext":["1980","1990","2000","2010"],"tickvals":[1980,1990,2000,2010],"categoryorder":"array","categoryarray":["1980","1990","2000","2010"],"nticks":null,"ticks":"outside","tickcolor":"rgba(77,77,77,1)","ticklen":3.9850560398505608,"tickwidth":0.72455564360919278,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"domain":[0.6711142738539998,1],"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":"","hoverformat":".2f"},"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":2.0615604867573372,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"gender","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3c10658757b6":{"x":{},"y":{},"colour":{},"text":{},"type":"scatter"},"3c1050765cbb":{"x":{},"y":{},"colour":{},"text":{}}},"cur_data":"3c10658757b6","visdat":{"3c10658757b6":["function (y) ","x"],"3c1050765cbb":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>This is a Quarto website.</p>
+<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
