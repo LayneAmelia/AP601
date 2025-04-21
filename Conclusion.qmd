@@ -3,5 +3,4 @@ title: "Conclusion"
 format: html
 ---
 
-VI. Conclusion: The purpose of your conclusion is to remind your reader of the thesis of your paper and to
-succinctly summarize/reiterate/weave together the main issues that you discussed earlier in your essay.
+This project seeks to show how Boston University has changed over the past few decades using publicly available data. By visualizing data on demographics, salaries, personnel numbers, and finances—and situating these trends within the context of the university’s history and broader world events—we can begin to understand the patterns that emerge, as well as raise new questions about what the institution’s history may be concealing. Understanding why and how these trends occur helps us better grasp the movements of higher education more broadly. Knowing where BU has been allows us to start imagining where it’s headed, and this project demonstrates the power of data and communication in shaping the future of the university.

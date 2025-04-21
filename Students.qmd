@@ -10,6 +10,7 @@ sidebar:
 
 
 
+
 # Tuition and Aid
 ```{r stufin, echo=FALSE, message=FALSE, warning=FALSE}
 
