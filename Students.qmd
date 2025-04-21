@@ -1,0 +1,90 @@
+---
+title: "Students"
+sidebar:
+  style: "floating"
+  contents:
+    - Faculty.qmd
+    - Students.qmd
+    - Admissions.qmd
+---
+
+
+
+# Tuition and Aid
+```{r stufin, echo=FALSE, message=FALSE, warning=FALSE}
+
+suppressMessages(suppressWarnings(library(tidyverse)))
+suppressMessages(suppressWarnings(library(stringr)))
+suppressMessages(suppressWarnings(library(tidyr)))
+suppressMessages(suppressWarnings(library(ggplot2)))
+suppressMessages(suppressWarnings(library(dplyr)))
+suppressMessages(suppressWarnings(library(ggthemes)))
+suppressMessages(suppressWarnings(library(hrbrthemes)))
+suppressMessages(suppressWarnings(library(plotly)))
+suppressMessages(suppressWarnings(library(scales)))
+
+# Read the data
+stu_aid <- read_csv("Stu.Aid.02.csv", show_col_types = FALSE)
+
+# Clean and convert data
+stu_aid <- stu_aid %>%
+  mutate(
+    Year = as.integer(Year),
+    `Average Aid` = as.numeric(`Average Aid`),
+    `Percent Given Aid` = as.numeric(`Percent Given Aid`),
+    `Total Tuition` = as.numeric(Total),
+    Percent_Scaled = `Percent Given Aid` * 900  # Scaling the percent for visibility
+  )
+
+# Reshape the data into a long format
+long_data <- stu_aid %>%
+  pivot_longer(cols = c("Average Aid", "Total Tuition", "Percent_Scaled"),
+               names_to = "Metric",
+               values_to = "Value") %>%
+  mutate(Metric = case_when(
+    Metric == "Average Aid" ~ "Average Aid",
+    Metric == "Total Tuition" ~ "Total Tuition",
+    Metric == "Percent_Scaled" ~ "Percent Given Aid"
+  ))
+
+# Create the ggplot with tooltips for the data
+p <- ggplot(long_data, aes(x = Year, y = Value, color = Metric, group = Metric,
+                           text = paste("Year:", Year,
+                                        "<br>Value:", 
+                                        ifelse(Metric == "Percent Given Aid", 
+                                               scales::percent(Value / 900, scale = 1),  # Dividing back for percent display
+                                               scales::label_dollar()(Value))))) +
+  geom_line(size = 1.2) +
+  geom_point() +
+  labs(title = "Student Aid Overview (2002–2023)",
+       subtitle = "Solid lines: Aid & Tuition | Dashed line: % Receiving Aid",
+       x = "Year", y = "Amount in Dollars",
+       color = "Metric") +
+  scale_color_manual(values = c(
+    "Average Aid" = "#006400",           # Deep Emerald
+    "Total Tuition" = "#002366",         # Deep Sapphire
+    "Percent Given Aid" = "#c9b1c9"      # Deep Amethyst
+  )) +
+  theme_minimal(base_size = 14) +
+  scale_y_continuous(labels = label_dollar(prefix = "$", big.mark = ","))
+
+# Convert to Plotly for interactivity
+interactive_plot <- ggplotly(p, tooltip = "text")
+
+# Display the interactive plot
+interactive_plot
+
+
+
+
+```
+
+
+
+# Degrees Awarded
+
+
+# Admissions
+
+
+# Majors

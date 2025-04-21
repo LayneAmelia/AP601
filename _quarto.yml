@@ -8,13 +8,36 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: intro.qmd
+        text: Introduction
+      - text: Analysis
+        href: Faculty.qmd
+      - href: Implications.qmd
+        text: Implications
+      - href: Limitations.qmd
+        text: Limitations
+      - href: Conclusion.qmd
+        text: Conclusion
+      - href: References.qmd
+        text: References
       - about.qmd
+      
+  sidebar:
+    style: floating
+    contents:
+      - section: "Main Analysis"
+        contents:
+          - Faculty.qmd
+          - Students.qmd
+          - Admissions.qmd
 
 format:
   html:
     theme: journal
     css: styles.css
     toc: true
+    code-fold: true
+    code-tools: true
 
 editor: visual
 

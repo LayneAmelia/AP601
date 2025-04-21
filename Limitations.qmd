@@ -1,0 +1,8 @@
+---
+title: "Limitations"
+format: html
+---
+
+This project is limited by the data available. There is both too much data to sift through and, at the same time, not enough. The project relied on IPEDS data, which is a robust collection of information, but not without its shortcomings. The main issue I encountered with this dataset is the lack of consistent longitudinal data collection. Many key categories—such as faculty gender—changed their methods of collection and categorization at a certain point, making it difficult to trace trends across those methodological shifts. Additionally, some information I hoped would go back further in time—like tuition data—simply did not. Historically, data becomes more sparse and more difficult to find the further back you go, especially when focusing on a specific topic or institution.
+
+I’m an amateur when it comes to data visualization. I took a few courses a couple of years ago, but I don’t have experience working with large datasets or advanced visualization methods beyond the beginner-friendly "ggplot2" library. I also acknowledge my own bias in this project: shaped by preconceived notions about the university and the "propaganda" I’ve encountered as both a BU student and staff member. BU presents its most positive sides to the public and student body, while inconvenient facts are often hidden away. This makes research even more challenging, as the narrative is primarily controlled by those who want the university to look good. Stories are told by university spokespeople. Achievements and milestones are filtered through official publications. History is curated on university websites and in university-authored books. The only thing that cannot lie—and cannot hide—is the data.

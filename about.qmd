@@ -1,9 +1,17 @@
 ---
 title: "About"
+author: "Amelia Layne"
+date: "2025-04-21"
 ---
 
-About this site
+**Project completed by Amelia Layne for AP 601: The History of Higher Education**
 
-```{r}
-1 + 1
-```
+This project analyzed **IPEDS** data using **R Studio** for data visualization and analysis. Findings were compiled and presented using **Quarto** to create a dynamic document, which was deployed online via **GitHub Pages** for public access.
+
+AP 601 History of Higher Education
+
+Spring 2025
+
+Boston University
+
+Dr. Louise Michelle Vital

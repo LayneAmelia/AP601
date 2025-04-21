@@ -1,0 +1,140 @@
+---
+title: "Admissions"
+sidebar:
+  style: "floating"
+  contents:
+    - Faculty.qmd
+    - Students.qmd
+    - Admissions.qmd
+---
+
+# Rates
+
+```{r rate, echo=FALSE, message=FALSE, warning=FALSE}
+suppressMessages(suppressWarnings(library(readr)))
+suppressMessages(suppressWarnings(library(stringr)))
+suppressMessages(suppressWarnings(library(tidyr)))
+suppressMessages(suppressWarnings(library(ggplot2)))
+suppressMessages(suppressWarnings(library(dplyr)))
+suppressMessages(suppressWarnings(library(ggthemes)))
+suppressMessages(suppressWarnings(library(hrbrthemes)))
+suppressMessages(suppressWarnings(library(plotly)))
+suppressMessages(suppressWarnings(library(scales)))
+suppressMessages(suppressWarnings(library(janitor)))
+
+
+df <- read_csv("Adm.Num.01.csv")
+df_clean <- df %>%
+  clean_names() %>%
+  rename(year = x1)
+df_long <- df_clean %>%
+  pivot_longer(cols = c(applicants_total, admissions_total, enrolled_total),
+               names_to = "Category", values_to = "Total") %>%
+  mutate(Category = factor(Category, levels = c("applicants_total", "admissions_total", "enrolled_total"),
+                           labels = c("Applicants", "Admissions", "Enrollments")))
+
+p <- ggplot(df_long, aes(x = factor(year), y = Total, fill = Category)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Total Applicants, Admissions, and Enrollments Over Time",
+       x = "Year", y = "Total Count", fill = "Category") +
+  scale_fill_manual(values = c("Applicants" = "#008B8B",
+                              "Admissions" = "#006400",
+                              "Enrollments" = "#FFD700")) + 
+  theme(legend.position = "top", axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplotly(p)
+
+
+```
+
+```{r admitgen, echo=FALSE, message=FALSE, warning=FALSE}
+
+suppressMessages(suppressWarnings(library(readr)))
+suppressMessages(suppressWarnings(library(stringr)))
+suppressMessages(suppressWarnings(library(tidyr)))
+suppressMessages(suppressWarnings(library(ggplot2)))
+suppressMessages(suppressWarnings(library(dplyr)))
+suppressMessages(suppressWarnings(library(ggthemes)))
+suppressMessages(suppressWarnings(library(hrbrthemes)))
+suppressMessages(suppressWarnings(library(plotly)))
+suppressMessages(suppressWarnings(library(scales)))
+
+df <- read_csv("Adm.Num.01.csv")
+
+df_clean <- df %>%
+  clean_names() %>%
+  rename(year = x1)
+
+
+
+df_gender_long <- df_clean %>%
+  select(year,
+         applicants_men, applicants_women,
+         admissions_men, admissions_women,
+         enrolled_men, enrolled_women) %>%
+  pivot_longer(
+    cols = -year,
+    names_to = c("category", "gender"),
+    names_sep = "_",
+    values_to = "number"
+  ) %>%
+  mutate(
+    category = case_when(
+      category == "applicants" ~ "Applicants",
+      category == "admissions" ~ "Admissions",
+      category == "enrolled"   ~ "Enrollments",
+      TRUE ~ category
+    ),
+    gender = case_when(
+      gender == "men" ~ "Men",
+      gender == "women" ~ "Women",
+      TRUE ~ gender
+    ))
+
+df_rates <- df_clean %>%
+  transmute(
+    year,
+    admissions_rate_men   = admissions_men / applicants_men,
+    admissions_rate_women = admissions_women / applicants_women,
+    yield_rate_men        = enrolled_men / admissions_men,
+    yield_rate_women      = enrolled_women / admissions_women
+  )
+admit_long <- df_rates %>%
+  select(year, admissions_rate_men, admissions_rate_women) %>%
+  pivot_longer(cols = -year, names_to = "group", values_to = "rate") %>%
+  mutate(
+    Metric = "Admissions Rate",
+    Gender = ifelse(group == "admissions_rate_men", "Men", "Women")
+  )
+yield_long <- df_rates %>%
+  select(year, yield_rate_men, yield_rate_women) %>%
+  pivot_longer(cols = -year, names_to = "group", values_to = "rate") %>%
+  mutate(
+    Metric = "Yield Rate",
+    Gender = ifelse(group == "yield_rate_men", "Men", "Women")
+  )
+df_long_rates <- bind_rows(admit_long, yield_long)
+
+p <- ggplot(df_long_rates, aes(x = factor(year), y = rate, fill = Gender)) +
+geom_bar(stat = "identity", position = position_dodge(width = 0.9))+
+  facet_wrap(~Metric) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1), limits = c(0, 1)) +
+  scale_fill_manual(values = c("Women" = "#c73e4e", "Men" = "#b370ff")) +
+  labs(
+    title = "Admissions and Yield Rates by Gender",
+    x = "Year",
+    y = "Percentage",
+    fill = "Gender"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
+    strip.text = element_text(face = "bold")
+  )
+ggplotly(p)
+
+
+
+
+```
+

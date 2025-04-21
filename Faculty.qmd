@@ -1,0 +1,408 @@
+---
+title: "Faculty Analysis"
+sidebar:
+  style: "floating"
+  contents:
+    - Faculty.qmd
+    - Students.qmd
+    - Admissions.qmd
+---
+
+Data on faculty were obtained from the Integrated Postsecondary Education Data System. This section focuses on gender and racial demographics in tenured and tenure-track faculty by rank in terms of number, and salary averages based on gender.
+
+# Gender Demographics
+
+Before 1980, there were 34,390 female PhD recipients in the US compared to 144,208 male PhD recipients. The pool of women eligible to become full professors was limited, and given the amount of time and expertise needed to successfully proceed through the tenure and promotion process, it follows that there would be a smaller population of female tenured faculty members at the university.
+
+```{r gender80, warning=FALSE}
+
+
+suppressMessages(suppressWarnings(library(stringr)))
+suppressMessages(suppressWarnings(library(tidyr)))
+suppressMessages(suppressWarnings(library(ggplot2)))
+suppressMessages(suppressWarnings(library(dplyr)))
+suppressMessages(suppressWarnings(library(ggthemes)))
+suppressMessages(suppressWarnings(library(hrbrthemes)))
+suppressMessages(suppressWarnings(library(plotly)))
+suppressMessages(suppressWarnings(library(scales)))
+
+
+faculty_data <- read.csv("F.Sal.80.csv")
+
+colnames_cleaned <- colnames(faculty_data)
+
+colnames_cleaned <- str_replace_all(colnames_cleaned,
+                "^Number\\.of\\.full\\.time\\.instructional\\.(faculty|staff)\\.(men|women|total)\\.\\.SAL(\\d{4})_.*\\.(Professor|Associate\\.professor|Assistant\\.professor).*",
+                "Number_\\3_\\4_\\2") 
+colnames_cleaned <- str_replace_all(colnames_cleaned,
+                "^Average\\.salary\\.of\\.full\\.time\\.instructional\\.(faculty|staff)\\.(men|women|total)\\.\\.SAL(\\d{4})_.*\\.(Professor|Associate\\.professor|Assistant\\.professor).*",
+                "Average_\\3_\\4_\\2") 
+
+
+colnames(faculty_data) <- colnames_cleaned
+
+
+long_data <- faculty_data %>%
+  pivot_longer(cols = starts_with("Average"), 
+               names_to = c("year", "rank", "gender"),
+               names_pattern = "Average_(\\d{4})_(.*)_(.*)", 
+               values_to = "salary") %>%
+  mutate(year = as.integer(year))
+
+
+
+
+
+long_count <- faculty_data %>%
+  pivot_longer(cols = starts_with("Number"), 
+               names_to = c("year", "rank", "gender"),
+               names_pattern = "Number_(\\d{4})_(.*)_(.*)", 
+               values_to = "n") %>%
+  mutate(year = as.integer(year))
+
+
+long_combined <- left_join(long_data, long_count, by = c("year", "rank", "gender"))
+
+
+gender_count_data <- long_combined %>%
+  filter(gender %in% c("women", "men")) %>%
+  select(year, rank, gender, n)
+
+gender_count_plot <- ggplot(gender_count_data, aes(x = year, y = n, color = gender, group = gender,
+                                                   text = paste("Year:", year,
+                                                                "<br>Count:", n))) +
+  geom_line(size = 1) +
+  geom_point() +
+  facet_wrap(~rank) +
+  labs(title = "Number of Faculty by Gender from 1980-2011", x = "Year", y = "Faculty Count") +
+  scale_color_manual(values = c("women" = "#993366", "men" = "#5d437c")) +
+  theme_few()
+
+
+interactive_gender_plot <- ggplotly(gender_count_plot, tooltip = "text")
+
+interactive_gender_plot
+```
+
+However, in 1979, the number of PhDs awarded per year would reach 95,631, soon to hit six digits from which it would never again decrease. Steadily and consistently, the percentage of female PhD recipients would increase from 29.0% in 1980 to then exceed 50% in 2006. Women are predicted to be the majority of PhD recipients in projections.
+
+Yet, the "leaky pipeline" phenomenon is evident here. Women are remaining as junior faculty and the tenured faculty positions remain predominantly male. We can see a push to hire women at the assistant professor level beginning in around 2015. Yet, the tenure process is typically 6-7 years, so we would expect to see that the number of female associate professors begins to increase in around 2020. Evidently, women are not achieving tenure, despite nearly a double in the number of assistant professors who are women.
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+
+
+
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+library(tidyverse)
+library(plotly)
+library(ggthemes)
+
+
+faculty_curr <- read.csv("F.Num.Curr.csv")
+
+
+
+colnames(faculty_curr) <- str_replace_all(colnames(faculty_curr), "_RV", "")
+
+colnames_cleaned <- colnames(faculty_curr)
+
+colnames_cleaned <- str_replace_all(colnames(faculty_curr), "\\.{1,}", "_") 
+
+colnames_cleaned <- str_replace_all(colnames_cleaned, "^_|_$", "")
+
+colnames(faculty_curr) <- colnames_cleaned
+
+colnames_cleaned <- str_replace_all(colnames_cleaned,
+                                    "(S)(\\d{4})_IS_Full_time_instructional_professors",
+                                    "\\2_Professor")
+
+colnames_cleaned <- str_replace_all(colnames_cleaned,
+                                    "(total|men|women)_(Grand|American_Indian_or_Alaska_Native|Asian|Black|Hispanic|NHPI|White|Two|Unknown)",
+                                    "\\2_\\3_\\1")
+
+
+
+
+# Ensure it's in the desired format
+colnames_cleaned <- str_replace_all(colnames_cleaned,
+                                    "(S)(\\d{4})",
+                                    "\\2")
+# Replace race/ethnicity terms with abbreviations, including Two and Unknown
+colnames_cleaned <- str_replace_all(colnames_cleaned,
+                                    c("American_Indian_or_Alaska_Native" = "AIAN",
+                                      "Black_or_African_American" = "Black",
+                                      "White" = "White",
+                                      "Asian" = "Asian",
+                                      "Hispanic_or_Latino" = "Hispanic",
+                                      "Native_Hawaiian_or_Other_Pacific_Islander" = "NHPI",
+                                      "Two_or_more_races" = "Two",
+                                      "Race_ethnicity_unknown" = "Unknown"))
+
+colnames_cleaned <- colnames(faculty_curr) %>%
+  # Simplify rank
+  str_replace_all("Full_time_instructional_professors", "Professor") %>%
+  str_replace_all("Full_time_instructional_associate_professors", "Associate") %>%
+  str_replace_all("Full_time_instructional_assistant_professors", "Assistant") %>%
+  str_replace("_S(\\d{4})_IS_", "_\\1_") %>%
+  str_replace_all("American_Indian_or_Alaska_Native", "AIAN") %>%
+  str_replace_all("Black_or_African_American", "Black") %>%
+  str_replace_all("Hispanic_or_Latino", "Hispanic") %>%
+  str_replace_all("Asian", "Asian") %>%
+  str_replace_all("Native_Hawaiian_or_Other_Pacific_Islander", "NHPI") %>%
+  str_replace_all("White", "White") %>%
+  str_replace_all("Two_or_more_races", "Two") %>%
+  str_replace_all("Race_ethnicity_unknown", "Unknown") %>%
+  str_replace_all("Grand_total", "Grand")
+
+
+colnames(faculty_curr) <- colnames_cleaned
+
+
+
+long_faculty <- faculty_curr %>%
+  pivot_longer(
+    -instnm,
+    names_to = "key",
+    values_to = "n"
+  ) %>%
+  mutate(
+    gender = case_when(
+      str_detect(key, "_men_") ~ "men",
+      str_detect(key, "_women_") ~ "women",
+      str_detect(key, "_total_") ~ "total",
+      str_detect(key, "_Grand_men_") ~ "men",
+      str_detect(key, "_Grand_women_") ~ "women",
+      str_detect(key, "^Grand_\\d{4}_") ~ "total",
+      TRUE ~ NA_character_
+    ),
+    year = str_extract(key, "\\d{4}"),
+    rank = case_when(
+      str_detect(key, "Professor$") ~ "Professor",
+      str_detect(key, "Associate$") ~ "Associate",
+      str_detect(key, "Assistant$") ~ "Assistant",
+      TRUE ~ "Unknown"
+    ),
+    race = case_when(
+      str_detect(key, "^Grand") ~ "grand",
+      str_detect(key, "^AIAN") ~ "AIAN",
+      str_detect(key, "^Black") ~ "Black",
+      str_detect(key, "^White") ~ "White",
+      str_detect(key, "^Asian") ~ "Asian",
+      str_detect(key, "^Hispanic") ~ "Hispanic",
+      str_detect(key, "^NHPI") ~ "NHPI",
+      str_detect(key, "^Two") ~ "Two",
+      str_detect(key, "^Unknown") ~ "Unknown",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  filter(race == "grand") %>%
+  select(instnm, year, rank, gender, n)
+
+
+
+
+gender_count_plot <- ggplot(long_faculty %>% filter(gender %in% c("men", "women")),
+                            aes(x = year, y = n, color = gender, group = gender,
+                                text = paste("Year:", year,
+                                             "<br>Count:", n))) +
+  geom_line(size = 1) +
+  geom_point() +
+  facet_wrap(~rank) +
+  labs(title = "Number of Faculty by Gender from 2012-2023",
+       x = "Year", y = "Faculty Count") +
+  scale_color_manual(values = c("women" = "#993366", "men" = "#5d437c")) +
+  theme_few()+ scale_x_discrete(breaks = function(x) x[seq(1, length(x), by = 2)]) + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+
+interactive_gender_plot <- ggplotly(gender_count_plot, tooltip = "text")
+interactive_gender_plot
+
+```
+
+The increase in 2015 cannot be explained by a singular event or law. However, at Boston University in that moment, there were internal and external forces at play. President Robert A. Brown entered his tenth year as the tenth president of the university with a robust new Strategic Plan in place.
+
+The 2015 strategic plan aimed to transform the university into a world-class research institution, and the items all included faculty improvement goals.
+
+This includes
+
+1.  **Big Thinking Meets Big Reality**
+
+    *"We had to figure out what would really make a difference to the University, to the students, to the world. Then break it down into realistic actions. Like hiring more professors—amazing people who inspire amazing people."*
+
+2.  **Footing the Bill**
+
+    *"We’re halfway through the timeline of our first-ever, \$1B comprehensive fundraising effort, and... we’re closer to our goal than we expected: over \$800M to date. Among other things, these funds are... attracting and retaining world-class faculty."*
+
+3.  **Chartering Success**
+
+    *"There are a lot of ways to describe our progress... There’s our hiring and mentoring of the next generation of award-winning professors and researchers.*
+
+4.  **Being Better than Just Great**
+
+    *"Aside from making it easier for our undergraduates to move between colleges, and bringing more diversity on both sides of the lectern, we’re committed to ongoing, rigorous academic reviews of all our offerings, focusing on the quality of our educational programs, faculty, and research."*
+
+5.  **Mapping our Progress**
+
+    *"We created 94 new faculty positions and dropped our student/faculty ratio from 15:1 to 12.5:1"*
+
+BU also was invited to join the prestigious Association of American Universities in 2012, which likely made the university hold itself to higher standards in order to continue to be mentioned in the save breath as institutions such as Harvard, Brown, Stanford, Johns Hopkins, MIT, and the like
+
+# Salary Discrepancies
+
+```{r salary, warning=FALSE}
+
+filtered_data <- long_combined %>%
+  filter(gender != "total")
+
+
+
+p_salary <- ggplot(filtered_data, aes(x = year, y = salary, color = gender, group = gender,
+                                      text = paste("Year:", year,
+                                                   "<br>Salary:", scales::label_dollar()(salary),
+                                                   "<br>n:", n))) +
+  geom_line(size = 1) +
+  geom_point() +
+  facet_wrap(~rank) +
+  labs(title = "Average Salary from 1980-2010", x = "Year", y = "Salary") +
+  scale_color_manual(values = c("women" = "#993366", "men" = "#5d437c", "total" = "#6fa9b8")) +
+  theme_few() +
+  scale_y_continuous(labels = label_dollar()) 
+
+interactive_salary_plot <- ggplotly(p_salary, tooltip = "text")
+
+interactive_salary_plot
+
+```
+
+```{r newsalary, warning=FALSE}
+library(tidyverse)
+library(stringr)
+library(ggthemes)
+library(scales)
+library(plotly)
+
+faculty_data <- read.csv("F.Sal.16.csv")
+
+colnames_cleaned <- colnames(faculty_data)
+
+colnames_cleaned <- str_replace_all(
+  colnames_cleaned,
+  "^Instructional\\.staff\\.on\\.9\\.\\.10\\.\\.11\\.or\\.12\\.month\\.contract\\.(men|women|total)\\.\\.SAL(\\d{4}).*\\.\\.(Professor|Associate\\.professor|Assistant\\.professor)\\.",
+  "Number_\\2_\\3_\\1"
+)
+
+colnames_cleaned <- str_replace_all(
+  colnames_cleaned,
+  "^Average\\.salary\\.for\\.instructional\\.staff\\.on\\.9\\.month\\.contract\\.(men|women|total)\\.\\.SAL(\\d{4}).*\\.\\.(Professor|Associate\\.professor|Assistant\\.professor)\\.",
+  "Average_\\2_\\3_\\1"
+)
+
+colnames(faculty_data) <- colnames_cleaned
+
+
+
+long_data <- faculty_data %>%
+  pivot_longer(cols = starts_with("Average"), 
+               names_to = c("year", "rank", "gender"),
+               names_pattern = "Average_(\\d{4})_(.*)_(.*)", 
+               values_to = "salary") %>%
+  mutate(year = as.integer(year))
+
+long_count <- faculty_data %>%
+  pivot_longer(cols = starts_with("Number"), 
+               names_to = c("year", "rank", "gender"),
+               names_pattern = "Number_(\\d{4})_(.*)_(.*)", 
+               values_to = "n") %>%
+  mutate(year = as.integer(year))
+
+
+long_combined <- left_join(long_data, long_count, by = c("year", "rank", "gender"))
+
+
+filtered_data <- long_combined %>%
+  filter(gender != "total")
+
+p_salary <- ggplot(filtered_data, aes(x = year, y = salary, color = gender, group = gender,
+                                      text = paste("Year:", year,
+                                                   "<br>Salary:", scales::label_dollar()(salary),
+                                                   "<br>n:", n))) +
+  geom_line(size = 1) +
+  geom_point() +
+  facet_wrap(~rank) +
+  labs(title = "Average Salary from 2016-2022", x = "Year", y = "Salary") +
+  scale_color_manual(values = c("women" = "#993366", "men" = "#5d437c", "total" = "#6fa9b8")) +
+  theme_few() +
+  scale_y_continuous(labels = label_dollar())
+
+interactive_salary_plot <- ggplotly(p_salary, tooltip = "text")
+
+interactive_salary_plot
+
+```
+
+The salary averages for women vs men has women consistently below the average. A limitation of this dataset is that there is no context in terms of seniority, field or department, or productivity. It is hard to say that there is discrimination at play in this scenario, primarily because of the lesser amount of seniority and years of merit and salary increase to boost the average of the gender. Women only recently have been receiving PhDs at the same rate as men, so I anticipate that as faculty retire, the salaries will level out.
+
+# Racial Demographics
+
+```{r race, warning=FALSE}
+long_faculty_race <- faculty_curr %>%
+  pivot_longer(
+    cols = -instnm,
+    names_to = "key",
+    values_to = "n"
+  )
+
+long_faculty_race <- long_faculty_race %>%
+  separate(key, into = c("race", "gender", "year", "rank"), sep = "_", remove = FALSE)
+
+long_faculty_race_clean <- long_faculty_race %>%
+  filter(gender != "NA", race != "NA", rank != "Unknown")
+
+
+long_faculty_race_clean <- long_faculty_race_clean %>%
+  filter(!str_detect(key, "Grand"))  # Remove rows with 'Grand'
+
+long_faculty_race_clean <- long_faculty_race_clean %>%
+  mutate(rank = case_when(
+    str_detect(key, "Professor") ~ "Professor",
+    str_detect(key, "Associate") ~ "Associate",
+    str_detect(key, "Assistant") ~ "Assistant",
+    TRUE ~ rank 
+  )) %>%
+  separate(key, into = c("race", "gender", "year", "rank"), sep = "_") 
+
+
+
+long_faculty_race_clean <- long_faculty_race %>%
+  filter(gender == "total") 
+
+
+stackedrace <- ggplot(long_faculty_race_clean, aes(x =year , y = n, fill = race)) +
+  geom_bar(stat = "identity") + 
+  facet_wrap(~rank) + 
+  labs(title = "Faculty Count by Race and Rank from 2012-2022", 
+       x = "Year", 
+       y = "Number of Faculty") +
+  scale_fill_manual(values = c("AIAN" = "#006400",
+                              "Black" = "#4B0082",
+                              "White" = "#003366",
+                              "Asian" = "#800080",
+                              "Hispanic" = "#800000",
+                              "NHPI" = "#2F4F4F", 
+                              "Two" = "#008080")) +
+  theme_few() + scale_x_discrete(breaks = function(x) x[seq(1, length(x), by = 2)])+ theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+interactive_plot <- ggplotly(stackedrace)
+interactive_plot
+```
+
+Race categorizations changed in the IPEDS system around 2010, so the data collection changed during that year. However, the recent data conveys that higher education continues to be pervasively white. Despite Boston University being founded on the principles of "inclusion, regardless of gender, race, or religion," having Black and Japanese Law graduates as early as 1877, naming Howard Thurman as the first Black dean in a predominantly white university in 1953, graduating Dr. Martin Luther King Jr with a PhD in 1955, launching the Center for Antiracist Research in 2020, and currently having a black, female president, Dr. Melissa Gilliam, BU's faculty demographics have evolved minimally and are not reflective of the United States population. The leaky pipeline is clear. The junior faculty are (marginally) more diverse than the tenured faculty.
+
+# Conclusions
+
+We see much change at the assistant professor level, which bodes well for the future of higher education. More diverse people are being welcomed into academia, and now the challenge is to foster an inclusive climate in order to retain the exceptional scholars hired at the university.

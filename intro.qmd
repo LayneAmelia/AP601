@@ -1,0 +1,6 @@
+---
+title: "Introduction"
+format: html
+---
+
+Using publicly available Integrated Postsecondary Education Data System (IPEDS) records, this project visualizes trends and movement at Boston University over the past few decades. Through statistical visualization, this project examines changes in gender and racial demographics among faculty and students, admissions patterns, financial considerations, completion rates, and degrees categorized by CIP codes, among other factors. By comparing these numerical trends to the university’s history, prominent contemporaneous events, and BU’s self-representation, this project provides a holistic, yet data informed picture of Boston University from around 1980 to the present. The objective of this project is to examine how numerical values are interpreted and explained through trends and events in higher education, and how we can use these trends to begin institutional conversations about where we have come from, where we are now, where we are going, and what we can do to change the university’s trajectory.
