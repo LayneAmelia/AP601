@@ -1,6 +1,7 @@
 project:
   type: website
   output-dir: docs
+  
 
 website:
   title: "AP601 Capstone"
@@ -38,6 +39,8 @@ format:
     toc: true
     code-fold: true
     code-tools: true
+    versioned: true
+    include-in-header: meta-nocache.html
 
 editor: visual
 
