@@ -7,10 +7,11 @@ sidebar:
     - Students.qmd
     - Admissions.qmd
 ---
+College application season is a stressful time for high school seniors. As schools get more selective, transparency in the process helps students from all backgrounds understand what is happening in the admissions landscape!
 
 # Rates
 
-```{r rate, echo=FALSE, message=FALSE, warning=FALSE}
+```{r rate, message=FALSE, warning=FALSE}
 suppressMessages(suppressWarnings(library(readr)))
 suppressMessages(suppressWarnings(library(stringr)))
 suppressMessages(suppressWarnings(library(tidyr)))
@@ -43,9 +44,10 @@ p <- ggplot(df_long, aes(x = factor(year), y = Total, fill = Category)) +
   theme(legend.position = "top", axis.text.x = element_text(angle = 45, hjust = 1))
 
 ggplotly(p)
-
-
 ```
+The evident trend is that the number of applicants is climbing while the admissions and enrollments hover around the same value. We live in a society where prestige and selectivity is more important than educational quality and personal "fit." Every year, schools get more selective and acceptance rates drop, much to the delight of the institutions who are eager to flaunt their low acceptance rates. Yet, this is because more students are applying to universities, all of whom competing for a small number of spots. Many highly capable students are being rejected, not due to their merit, but due to the large volume of applications. To this end, the college admissions process has become less about working hard and getting good grades, and more about gaming the system in order to stand out among an ocean of other applicants with good grades.
+
+# Gender
 
 ```{r admitgen,message=FALSE, warning=FALSE}
 
@@ -119,7 +121,7 @@ p <- ggplot(df_long_rates, aes(x = factor(year), y = rate, fill = Gender)) +
 geom_bar(stat = "identity", position = position_dodge(width = 0.9))+
   facet_wrap(~Metric) +
   scale_y_continuous(labels = scales::percent_format(accuracy = 1), limits = c(0, 1)) +
-  scale_fill_manual(values = c("Women" = "#c73e4e", "Men" = "#b370ff")) +
+  scale_fill_manual(values = c("Women" = "#c73e4e", "Men" = "#5d437c")) +
   labs(
     title = "Admissions and Yield Rates by Gender",
     x = "Year",
@@ -137,4 +139,57 @@ ggplotly(p)
 
 
 ```
+For a period of time between 2001 and 2017, acceptance rates were always higher for women. In recent years, this has flipped, while the university's yield predictions have been rather stable.
+For women, the acceptance rate peaked in 2011 at ~60% and was at its lowest 15% in 2021 (based on this dataset). In just 10 years, the acceptance rate has quartered!
 
+```{r admit, message=FALSE, warning=FALSE}
+
+
+
+
+df_admit <- select(df_long, year, applicants_men, applicants_women)
+
+df_admit_long <- df_admit %>%
+  pivot_longer(cols = c(applicants_men, applicants_women),
+               names_to = "Gender",
+               values_to = "Count")
+a <- ggplot(df_admit_long , aes(x = factor(year), y = Count, fill = Gender)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Applicants Over Time by Gender",
+       x = "Year",
+       y = "Number of Applicants",
+       fill = "Gender") +
+  scale_fill_manual(values = c("applicants_men" = "#5d437c", "applicants_women" = "#c73e4e")) +
+  theme(legend.position = "top", axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplotly(a)
+
+```
+We can see that the number of women applying to BU is significantly higher than the number of men, with the difference increasing over time. The student body is predominantly female, and the predominantly male faculty body does not represent the students. 
+
+
+```{r class,message=FALSE, warning=FALSE}
+
+
+
+
+df_enroll <- select(df_long, year, enrolled_men, enrolled_women)
+
+df_enroll_long <- df_enroll %>%
+  pivot_longer(cols = c(enrolled_men, enrolled_women),
+               names_to = "Gender",
+               values_to = "Count")
+enroll_stacked <- ggplot(df_enroll_long, aes(x = factor(year), y = Count, fill = Gender)) +
+  geom_bar(stat = "identity", position = "stack") +
+  labs(title = "Enrollments Over Time by Gender",
+       x = "Year",
+       y = "Number of Enrollees",
+       fill = "Gender") +
+  scale_fill_manual(values = c("enrolled_men" = "#5d437c", "enrolled_women" = "#c73e4e")) +
+  theme(legend.position = "top", axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplotly(enroll_stacked)
+
+
+```
+The highest enrollment in recent years was in 2021, which marked Boston University's return to in-person learning following the COVID-19 pandemic. This large class is graduating this year, in 2025, and the size of the class has led to tickets being required at commencement for the first time. However, there were more students enrolled in the 2011 class, so it is a bit odd that the university has stressed that the class of 2025 is enormous when in it in line with the class sizes of the 2000s.
