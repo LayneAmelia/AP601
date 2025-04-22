@@ -3,28 +3,28 @@ title: "References"
 format: html
 ---
 
-Boston University Office of Government & Community Affairs. *Boston University Basics*. <https://www.bu.edu/federal/for-policymakers/boston-university-basics/>.
+Boston University Office of Government & Community Affairs. (n.d.). *Boston University basics*. Boston University. <https://www.bu.edu/federal/for-policymakers/boston-university-basics/>
 
-Boston University. *Presidents*. *BU Timeline*, <https://www.bu.edu/timeline/category/presidents/>.
+Boston University. (n.d.). *Presidents*. BU Timeline. <https://www.bu.edu/timeline/category/presidents/>
 
-U.S. Department of Education, National Center for Education Statistics. "Table 318.10: Degree-Granting Postsecondary Institutions, by Control and Level of Institution: Selected Years, 1949–50 through 2022–23." *Digest of Education Statistics*, 2023. <https://nces.ed.gov/programs/digest/d23/tables/dt23_318.10.asp>.
+Boston University. (n.d.). *Strategic plan: Choosing our future—BU 2015*. <https://www.bu.edu/plan2015/>
 
-Boston University. *Strategic Plan: Choosing Our Future—BU 2015*. <https://www.bu.edu/plan2015/>.
+Boston University. (n.d.). *Notable history*. Diversity & Inclusion at BU. <https://www.bu.edu/diversity/about/notable-history/>
 
-Association of American Universities. *AAU Member Universities by Year of Entry*. <https://www.aau.edu/who-we-are/our-members/aau-member-universities-year-entry>.
+Association of American Universities. (n.d.). *AAU member universities by year of entry*. <https://www.aau.edu/who-we-are/our-members/aau-member-universities-year-entry>
 
-Boston University. *Notable History*. *Diversity & Inclusion at BU*, <https://www.bu.edu/diversity/about/notable-history/>.
+Jahnke, A. (2019, August 15). BU boosts financial aid to 100 percent of calculated need. *BU Today*. <https://www.bu.edu/articles/2019/bu-boosts-financial-aid/>
 
-Jahnke, Art. “BU Boosts Financial Aid to 100 Percent of Calculated Need.” *BU Today*, 15 Aug. 2019, <https://www.bu.edu/articles/2019/bu-boosts-financial-aid/>.​
+Woolhouse, M. (2022, March 22). BU is making standardized tests optional for undergrad applicants for third consecutive year. *BU Today*. <https://www.bu.edu/articles/2022/standardized-tests-optional-for-third-consecutive-year/>
 
-Woolhouse, Megan. “BU Is Making Standardized Tests Optional for Undergrad Applicants for Third Consecutive Year.” *BU Today*, 22 Mar. 2022, <https://www.bu.edu/articles/2022/standardized-tests-optional-for-third-consecutive-year/>.
+U.S. Department of Education, National Center for Education Statistics. (2023). *Table 318.10: Degree-granting postsecondary institutions, by control and level of institution: Selected years, 1949–50 through 2022–23*. Digest of Education Statistics. <https://nces.ed.gov/programs/digest/d23/tables/dt23_318.10.asp>
 
-U.S. Department of Education, National Center for Education Statistics, Integrated Postsecondary Education Data System (IPEDS), Fall 2012 - Fall 2023, *Full-time instructional staff by academic rank, faculty and tenure status, race/ethnicity and gender*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/> on 12 April, 2025.
+U.S. Department of Education, National Center for Education Statistics. (2025, April 12). *Integrated Postsecondary Education Data System (IPEDS), Fall 2012–Fall 2023: Full-time instructional staff by academic rank, faculty and tenure status, race/ethnicity, and gender*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
 
-U.S. Department of Education, National Center for Education Statistics, Integrated Postsecondary Education Data System (IPEDS), Fall 1980 - Spring 2012, *Salaries of full-time non-medical instructional staff: Academic year 1980-81 to 2011-12*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/> on 12 April, 2025
+U.S. Department of Education, National Center for Education Statistics. (2025, April 12). *Integrated Postsecondary Education Data System (IPEDS), Fall 1980–Spring 2012: Salaries of full-time non-medical instructional staff, academic year 1980–81 to 2011–12*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
 
-U.S. Department of Education, National Center for Education Statistics, Integrated Postsecondary Education Data System (IPEDS), 2002-2024, *Total cost of attendance*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/> on 19 April, 2025
+U.S. Department of Education, National Center for Education Statistics. (2025, April 19). *Integrated Postsecondary Education Data System (IPEDS), 2002–2024: Total cost of attendance*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
 
-U.S. Department of Education, National Center for Education Statistics, Integrated Postsecondary Education Data System (IPEDS), 2002-2024, *Student financial aid of full-time first-time degree/certificate-seeking undergraduate students*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/> on 19 April, 2025
+U.S. Department of Education, National Center for Education Statistics. (2025, April 19). *Integrated Postsecondary Education Data System (IPEDS), 2002–2024: Student financial aid of full-time first-time degree/certificate-seeking undergraduate students*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
 
-U.S. Department of Education, National Center for Education Statistics, Integrated Postsecondary Education Data System (IPEDS), 2002-2024, *Admissions and Test Scores: Number of applications, admissions, and enrollees.* Retrieved from <https://nces.ed.gov/ipeds/datacenter/> on 20 April, 2025
+U.S. Department of Education, National Center for Education Statistics. (2025, April 20). *Integrated Postsecondary Education Data System (IPEDS), 2002–2024: Admissions and test scores—Number of applications, admissions, and enrollees*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
