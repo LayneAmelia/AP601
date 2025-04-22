@@ -12,7 +12,7 @@ sidebar:
 # Tuition and Aid
 
 I was an undergraduate in 2022 when the "largest tuition hike in 14 years" was met with upset, frustration, and despair. However, this graph reveals what is essentially a linear increase in tuition. Of course, a 4% increase of an increasing significant amount of money hits students harder each year, but this graph shows maintainance of the status quo.
-```{r stufin, echo=FALSE, message=FALSE, warning=FALSE}
+```{r stufin, message=FALSE, warning=FALSE}
 
 suppressMessages(suppressWarnings(library(tidyverse)))
 suppressMessages(suppressWarnings(library(stringr)))
@@ -82,10 +82,3 @@ interactive_plot
 Additionally, the university expanded their financial aid program to meet all demonstrated need for first-year domestic students in the fall of 2020. Interestingly, there is limited change in the percent of students given aid and the average aid amount. The average aid number represents "federal, state, local or institutional grant aid awarded to full-time first-time undergraduates," so while full-demonstrated need is an excellent guarantee for students, it appears this was not a financial investment on the university and on average students did not benefit.
 
 
-# Degrees Awarded
-
-
-# Admissions
-
-
-# Majors

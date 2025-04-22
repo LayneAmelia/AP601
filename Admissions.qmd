@@ -47,7 +47,7 @@ ggplotly(p)
 
 ```
 
-```{r admitgen, echo=FALSE, message=FALSE, warning=FALSE}
+```{r admitgen,message=FALSE, warning=FALSE}
 
 suppressMessages(suppressWarnings(library(readr)))
 suppressMessages(suppressWarnings(library(stringr)))
