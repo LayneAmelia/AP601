@@ -12,7 +12,7 @@ sidebar:
 
 BU is an institution centered around students and education. Every year, a new cohort with new ideas and experiences matriculates, and every year a cohort of fresh content experts graduates. The constantly evolving student body guides the trajectory of the institution.
 
-# *Tuitio*n and Aid
+# Tuition and Aid
 
 I was an undergraduate in 2022 when the "largest tuition hike in 14 years" was met with upset, frustration, and despair. However, this graph reveals what is essentially a linear increase in tuition. Of course, a 4% increase of an increasing significant amount of money hits students harder each year, but this graph shows maintenance of the status quo.
 
@@ -28,20 +28,17 @@ suppressMessages(suppressWarnings(library(hrbrthemes)))
 suppressMessages(suppressWarnings(library(plotly)))
 suppressMessages(suppressWarnings(library(scales)))
 
-# Read the data
 stu_aid <- read_csv("Stu.Aid.02.csv", show_col_types = FALSE)
 
-# Clean and convert data
 stu_aid <- stu_aid %>%
   mutate(
     Year = as.integer(Year),
     `Average Aid` = as.numeric(`Average Aid`),
     `Percent Given Aid` = as.numeric(`Percent Given Aid`),
     `Total Tuition` = as.numeric(Total),
-    Percent_Scaled = `Percent Given Aid` * 900  # Scaling the percent for visibility
+    Percent_Scaled = `Percent Given Aid` * 900
   )
 
-# Reshape the data into a long format
 long_data <- stu_aid %>%
   pivot_longer(cols = c("Average Aid", "Total Tuition", "Percent_Scaled"),
                names_to = "Metric",
@@ -52,12 +49,11 @@ long_data <- stu_aid %>%
     Metric == "Percent_Scaled" ~ "Percent Given Aid"
   ))
 
-# Create the ggplot with tooltips for the data
 p <- ggplot(long_data, aes(x = Year, y = Value, color = Metric, group = Metric,
                            text = paste("Year:", Year,
                                         "<br>Value:", 
                                         ifelse(Metric == "Percent Given Aid", 
-                                               scales::percent(Value / 900, scale = 1),  # Dividing back for percent display
+                                               scales::percent(Value / 900, scale = 1), 
                                                scales::label_dollar()(Value))))) +
   geom_line(size = 1.2) +
   geom_point() +
@@ -66,17 +62,15 @@ p <- ggplot(long_data, aes(x = Year, y = Value, color = Metric, group = Metric,
        x = "Year", y = "Amount in Dollars",
        color = "Metric") +
   scale_color_manual(values = c(
-    "Average Aid" = "#006400",           # Deep Emerald
-    "Total Tuition" = "#002366",         # Deep Sapphire
-    "Percent Given Aid" = "#c9b1c9"      # Deep Amethyst
+    "Average Aid" = "#006400",    
+    "Total Tuition" = "#002366",    
+    "Percent Given Aid" = "#c9b1c9" 
   )) +
   theme_minimal(base_size = 14) +
   scale_y_continuous(labels = label_dollar(prefix = "$", big.mark = ","))
 
-# Convert to Plotly for interactivity
 interactive_plot <- ggplotly(p, tooltip = "text")
 
-# Display the interactive plot
 interactive_plot
 
 
@@ -137,10 +131,8 @@ suppressMessages(suppressWarnings(library(plotly)))
 suppressMessages(suppressWarnings(library(scales)))
 library(viridis)
 
-# Read the data
 data <- read_csv("Stu.Rac.94.csv")
 
-# Select relevant undergraduate race/ethnicity columns
 undergrad <- data %>%
   select(Year = `...1`,
          AIAN = `Undergraduate AIAN`,
@@ -157,7 +149,6 @@ undergrad <- data %>%
   group_by(Year) %>%
   mutate(Percent = Count / sum(Count, na.rm = TRUE) * 100)
 
-# Plot
 UG <- ggplot(undergrad, aes(x = as.integer(Year), y = Percent, fill = Group)) +
   geom_area(alpha = 0.8 , size = 0, colour = "white") +
     scale_fill_viridis_d(option = "viridis") + 
@@ -184,10 +175,8 @@ suppressMessages(suppressWarnings(library(plotly)))
 suppressMessages(suppressWarnings(library(scales)))
 library(viridis)
 
-# Read the data
 data <- read_csv("Stu.Rac.94.csv")
 
-# Select relevant undergraduate race/ethnicity columns
 grad <- data %>%
   select(Year = `...1`,
          AIAN = `Graduate AIAN`,
@@ -204,7 +193,6 @@ grad <- data %>%
   group_by(Year) %>%
   mutate(Percent = Count / sum(Count, na.rm = TRUE) * 100)
 
-# Plot
 UG <- ggplot(grad, aes(x = as.integer(Year), y = Percent, fill = Group)) +
   geom_area(alpha = 0.8 , size = 0, colour = "white") +
     scale_fill_viridis_d(option = "viridis") + 
@@ -259,7 +247,6 @@ suppressMessages(suppressWarnings(library(plotly)))
 suppressMessages(suppressWarnings(library(scales)))
 library(viridis)
 
-# Read the data
 data <- read_csv("Stu.Rac.94.csv")
 
 undergrad <- data %>%
@@ -272,10 +259,9 @@ undergrad <- data %>%
   group_by(Year) %>%
   mutate(Percent = Count / sum(Count, na.rm = TRUE) * 100)
 
-# Plot
 UG_resident_nonresident <- ggplot(undergrad, aes(x = as.integer(Year), y = Percent, fill = Category)) +
-  geom_area(alpha = 0.8, size = 0, colour = "white") +  # Remove border lines between sections
-  scale_fill_viridis_d(option = "plasma") +  # Use Viridis "inferno" palette
+  geom_area(alpha = 0.8, size = 0, colour = "white") +  
+  scale_fill_viridis_d(option = "plasma") + 
   labs(title = "Undergrad Domestic vs International Students Over Time",
        x = "Year", y = "Percent", fill = "Category") +
   theme_minimal() +
@@ -299,7 +285,6 @@ suppressMessages(suppressWarnings(library(plotly)))
 suppressMessages(suppressWarnings(library(scales)))
 library(viridis)
 
-# Read the data
 data <- read_csv("Stu.Rac.94.csv")
 
 grad <- data %>%
@@ -312,10 +297,9 @@ grad <- data %>%
   group_by(Year) %>%
   mutate(Percent = Count / sum(Count, na.rm = TRUE) * 100)
 
-# Plot
 G_resident_nonresident <- ggplot(grad, aes(x = as.integer(Year), y = Percent, fill = Category)) +
-  geom_area(alpha = 0.8, size = 0, colour = "white") +  # Remove border lines between sections
-  scale_fill_viridis_d(option = "plasma") +  # Use Viridis "inferno" palette
+  geom_area(alpha = 0.8, size = 0, colour = "white") + 
+  scale_fill_viridis_d(option = "plasma") + 
   labs(title = "Graduate Domestic vs International Students Over Time",
        x = "Year", y = "Percent", fill = "Category") +
   theme_minimal() +
