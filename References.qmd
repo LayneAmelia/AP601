@@ -17,6 +17,14 @@ Jahnke, A. (2019, August 15). BU boosts financial aid to 100 percent of calculat
 
 Woolhouse, M. (2022, March 22). BU is making standardized tests optional for undergrad applicants for third consecutive year. *BU Today*. <https://www.bu.edu/articles/2022/standardized-tests-optional-for-third-consecutive-year/>
 
+Boston University. (n.d.). *Equal opportunity/affirmative action policy (non-handbook version)*. Boston University. <https://www.bu.edu/policies/non-handbook-version-equal-opp-affirm-action/>
+
+Boston University. (2024). *Interim equal opportunity & Title IX policy*. Boston University. <https://www.bu.edu/policies/interim-equal-opportunity-and-title-ix-policy/>
+
+Simes, T. (2024, March 25). *Drop in Black students enrolled after Supreme Court affirmative action ruling*. Boston University. <https://www.bu.edu/articles/2024/drop-in-black-students-enrolled-after-supreme-court-affirmative-action-ruling/>
+
+U.S. News & World Report. (2024). *Most international students: National universities rankings*. <https://www.usnews.com/best-colleges/rankings/national-universities/most-international>
+
 U.S. Department of Education, National Center for Education Statistics. (2023). *Table 318.10: Degree-granting postsecondary institutions, by control and level of institution: Selected years, 1949–50 through 2022–23*. Digest of Education Statistics. <https://nces.ed.gov/programs/digest/d23/tables/dt23_318.10.asp>
 
 U.S. Department of Education, National Center for Education Statistics. (2025, April 12). *Integrated Postsecondary Education Data System (IPEDS), Fall 2012–Fall 2023: Full-time instructional staff by academic rank, faculty and tenure status, race/ethnicity, and gender*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
@@ -28,3 +36,5 @@ U.S. Department of Education, National Center for Education Statistics. (2025, A
 U.S. Department of Education, National Center for Education Statistics. (2025, April 19). *Integrated Postsecondary Education Data System (IPEDS), 2002–2024: Student financial aid of full-time first-time degree/certificate-seeking undergraduate students*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
 
 U.S. Department of Education, National Center for Education Statistics. (2025, April 20). *Integrated Postsecondary Education Data System (IPEDS), 2002–2024: Admissions and test scores—Number of applications, admissions, and enrollees*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
+
+<https://www.bu.edu/about/mission-statement/>

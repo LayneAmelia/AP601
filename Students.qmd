@@ -8,10 +8,14 @@ sidebar:
     - Admissions.qmd
 ---
 
+*"Boston University is an international, comprehensive, private research university, committed to educating students to be reflective, resourceful individuals ready to live, adapt, and lead in an interconnected world. Boston University is committed to generating new knowledge to benefit society."* BU Mission Statement
 
-# Tuition and Aid
+BU is an institution centered around students and education. Every year, a new cohort with new ideas and experiences matriculates, and every year a cohort of fresh content experts graduates. The constantly evolving student body guides the trajectory of the institution.
 
-I was an undergraduate in 2022 when the "largest tuition hike in 14 years" was met with upset, frustration, and despair. However, this graph reveals what is essentially a linear increase in tuition. Of course, a 4% increase of an increasing significant amount of money hits students harder each year, but this graph shows maintainance of the status quo.
+# *Tuitio*n and Aid
+
+I was an undergraduate in 2022 when the "largest tuition hike in 14 years" was met with upset, frustration, and despair. However, this graph reveals what is essentially a linear increase in tuition. Of course, a 4% increase of an increasing significant amount of money hits students harder each year, but this graph shows maintenance of the status quo.
+
 ```{r stufin, message=FALSE, warning=FALSE}
 
 suppressMessages(suppressWarnings(library(tidyverse)))
@@ -79,6 +83,247 @@ interactive_plot
 
 
 ```
+
 Additionally, the university expanded their financial aid program to meet all demonstrated need for first-year domestic students in the fall of 2020. Interestingly, there is limited change in the percent of students given aid and the average aid amount. The average aid number represents "federal, state, local or institutional grant aid awarded to full-time first-time undergraduates," so while full-demonstrated need is an excellent guarantee for students, it appears this was not a financial investment on the university and on average students did not benefit.
 
+# Racial Demographics
 
+In 2009, the race categorizations changed. This affirms that race is a social construct that groups people arbitrarily— NOT based on scientific, genetic, or cultural facts.
+
+The data between 1994 and 2007 group students into the following race categories:
+
+-   White Non-Hispanic
+
+-   Black Non-Hispanic
+
+-   Hispanic
+
+-   Asian or Pacific Islander
+
+-   American Indian or Alaska Native
+
+-   Race/Ethnicity Unknown
+
+There was a transition in categorization in 2008 and 2009, followed by a full implementation of the new race/ethnicity categories in 2010:
+
+-   American Indian or Alaska Native
+
+-   Asian
+
+-   Black or African American
+
+-   Hispanic
+
+-   Native Hawaiian or Other Pacific Islander
+
+-   White
+
+-   Two or More Races
+
+-   Race/Ethnicity Unknown
+
+Interestingly, the 1994 model *leads* with white, while the 2010 model is alphabetical. This is a small, but difficult to ignore detail.
+
+```{r student, message=FALSE, warning=FALSE}
+
+suppressMessages(suppressWarnings(library(tidyverse)))
+suppressMessages(suppressWarnings(library(stringr)))
+suppressMessages(suppressWarnings(library(tidyr)))
+suppressMessages(suppressWarnings(library(ggplot2)))
+suppressMessages(suppressWarnings(library(dplyr)))
+suppressMessages(suppressWarnings(library(ggthemes)))
+suppressMessages(suppressWarnings(library(hrbrthemes)))
+suppressMessages(suppressWarnings(library(plotly)))
+suppressMessages(suppressWarnings(library(scales)))
+library(viridis)
+
+# Read the data
+data <- read_csv("Stu.Rac.94.csv")
+
+# Select relevant undergraduate race/ethnicity columns
+undergrad <- data %>%
+  select(Year = `...1`,
+         AIAN = `Undergraduate AIAN`,
+         Asian = `Undergraduate Asian`,
+         Black = `Undergraduate Black`,
+         Hispanic = `Undergraduate Hispanic`,
+         NHPI = `Undergraduate NHPI`,
+                Unknown = `Undergraduate Unknown`,
+         White = `Undergraduate White`,
+         TwoOrMore = `Undergraduate Two`) %>%
+  filter(!is.na(Year)) %>%
+  mutate(across(-Year, as.numeric)) %>%
+  pivot_longer(-Year, names_to = "Group", values_to = "Count") %>%
+  group_by(Year) %>%
+  mutate(Percent = Count / sum(Count, na.rm = TRUE) * 100)
+
+# Plot
+UG <- ggplot(undergrad, aes(x = as.integer(Year), y = Percent, fill = Group)) +
+  geom_area(alpha = 0.8 , size = 0, colour = "white") +
+    scale_fill_viridis_d(option = "viridis") + 
+  labs(title = "Undergraduate Racial/Ethnic Composition Over Time",
+       x = "Year", y = "Percent", fill = "Group") +
+  theme_minimal() +
+  theme(legend.position = "right")
+
+ggplotly(UG)
+
+
+```
+
+```{r grad, message=FALSE, warning=FALSE}
+
+suppressMessages(suppressWarnings(library(tidyverse)))
+suppressMessages(suppressWarnings(library(stringr)))
+suppressMessages(suppressWarnings(library(tidyr)))
+suppressMessages(suppressWarnings(library(ggplot2)))
+suppressMessages(suppressWarnings(library(dplyr)))
+suppressMessages(suppressWarnings(library(ggthemes)))
+suppressMessages(suppressWarnings(library(hrbrthemes)))
+suppressMessages(suppressWarnings(library(plotly)))
+suppressMessages(suppressWarnings(library(scales)))
+library(viridis)
+
+# Read the data
+data <- read_csv("Stu.Rac.94.csv")
+
+# Select relevant undergraduate race/ethnicity columns
+grad <- data %>%
+  select(Year = `...1`,
+         AIAN = `Graduate AIAN`,
+         Asian = `Graduate Asian`,
+         Black = `Graduate Black`,
+         Hispanic = `Graduate Hispanic`,
+         NHPI = `Graduate NHPI`,
+                Unknown = `Graduate Unknown`,
+         White = `Graduate White`,
+         TwoOrMore = `Undergraduate Two`) %>%
+  filter(!is.na(Year)) %>%
+  mutate(across(-Year, as.numeric)) %>%
+  pivot_longer(-Year, names_to = "Group", values_to = "Count") %>%
+  group_by(Year) %>%
+  mutate(Percent = Count / sum(Count, na.rm = TRUE) * 100)
+
+# Plot
+UG <- ggplot(grad, aes(x = as.integer(Year), y = Percent, fill = Group)) +
+  geom_area(alpha = 0.8 , size = 0, colour = "white") +
+    scale_fill_viridis_d(option = "viridis") + 
+  labs(title = "Graduate Racial/Ethnic Composition Over Time",
+       x = "Year", y = "Percent", fill = "Group") +
+  theme_minimal() +
+  theme(legend.position = "right")
+
+ggplotly(UG)
+
+
+```
+
+Another observation is that the number of unknown students decreased during this change, implying that the race of these students was never really "Unknown," just unrepresented.
+
+Over time, Boston University's undergraduate and graduate populations have had greater numbers of students from minoritized groups. This more diverse student body enriches our campus and brings new perspectives and knowledge to the classroom and community. However, this dataset only goes to 2023. On October 15th, 2024, BU replaced the "Equal Opportunity/Affirmative Action Policy" in order to comply with the results of the Students for Fair Admissions v. President and Fellows of Harvard College, and Students for Fair Admissions v. University of North Carolina court cases:
+
+*"Boston University recognizes that non-discrimination does not ensure that equal opportunity is a reality. Accordingly, the University will continue to take affirmative action to achieve equal opportunity through recruitment, outreach, and internal reviews of policies and practices."*
+
+As a result of eliminating this policy, the number of black students enrolled in the class of 2028 dropped from 9% to 3%. The United States is at a turning point in higher education, and the data that has yet to be collected will be immensely revealing.
+
+Also, there is a noted difference in the population of the undergraduate vs graduate student body in 2023, where the number of students in graduate programs who identify as Asian, Black, and Hispanic are lower in each category than the proportion of the undergraduate population. This demonstrates the leaky pipeline, where representation decreases as we go up through levels of education.
+
+# International Population
+
+Boston University is the 5th most international school in the United States, with 22% of the total population in 2023 being international students.
+
+-   The New School (34%)
+
+-   New York University (26%)
+
+-   Carnegie Mellon University (23%)
+
+-   University of Rochester (23%)
+
+-   Boston University (22%)
+
+The diverse and global identity of BU has been long standing, and it is an element that the institution prides itself in.
+
+*"BU is already a leader in global engagement, with a deserved reputation as a world-class research university that welcomes gifted students from every corner of the earth."* BU Strategic Plan
+
+```{r studentint, message=FALSE, warning=FALSE}
+
+suppressMessages(suppressWarnings(library(tidyverse)))
+suppressMessages(suppressWarnings(library(stringr)))
+suppressMessages(suppressWarnings(library(tidyr)))
+suppressMessages(suppressWarnings(library(ggplot2)))
+suppressMessages(suppressWarnings(library(dplyr)))
+suppressMessages(suppressWarnings(library(ggthemes)))
+suppressMessages(suppressWarnings(library(hrbrthemes)))
+suppressMessages(suppressWarnings(library(plotly)))
+suppressMessages(suppressWarnings(library(scales)))
+library(viridis)
+
+# Read the data
+data <- read_csv("Stu.Rac.94.csv")
+
+undergrad <- data %>%
+  select(Year = `...1`,
+         Total = `Undergraduate Total`,
+         International = `Undergraduate International`) %>%
+  filter(!is.na(Year)) %>%
+  mutate(Domestic = Total - International) %>%
+  pivot_longer(cols = c(Domestic, International), names_to = "Category", values_to = "Count") %>%
+  group_by(Year) %>%
+  mutate(Percent = Count / sum(Count, na.rm = TRUE) * 100)
+
+# Plot
+UG_resident_nonresident <- ggplot(undergrad, aes(x = as.integer(Year), y = Percent, fill = Category)) +
+  geom_area(alpha = 0.8, size = 0, colour = "white") +  # Remove border lines between sections
+  scale_fill_viridis_d(option = "plasma") +  # Use Viridis "inferno" palette
+  labs(title = "Undergrad Domestic vs International Students Over Time",
+       x = "Year", y = "Percent", fill = "Category") +
+  theme_minimal() +
+  theme(legend.position = "right")
+
+ggplotly(UG_resident_nonresident)
+
+
+```
+
+```{r gradstudentint, message=FALSE, warning=FALSE}
+
+suppressMessages(suppressWarnings(library(tidyverse)))
+suppressMessages(suppressWarnings(library(stringr)))
+suppressMessages(suppressWarnings(library(tidyr)))
+suppressMessages(suppressWarnings(library(ggplot2)))
+suppressMessages(suppressWarnings(library(dplyr)))
+suppressMessages(suppressWarnings(library(ggthemes)))
+suppressMessages(suppressWarnings(library(hrbrthemes)))
+suppressMessages(suppressWarnings(library(plotly)))
+suppressMessages(suppressWarnings(library(scales)))
+library(viridis)
+
+# Read the data
+data <- read_csv("Stu.Rac.94.csv")
+
+grad <- data %>%
+  select(Year = `...1`,
+         Total = `Graduate Total`,
+         International = `Graduate International`) %>%
+  filter(!is.na(Year)) %>%
+  mutate(Domestic = Total - International) %>%
+  pivot_longer(cols = c(Domestic, International), names_to = "Category", values_to = "Count") %>%
+  group_by(Year) %>%
+  mutate(Percent = Count / sum(Count, na.rm = TRUE) * 100)
+
+# Plot
+G_resident_nonresident <- ggplot(grad, aes(x = as.integer(Year), y = Percent, fill = Category)) +
+  geom_area(alpha = 0.8, size = 0, colour = "white") +  # Remove border lines between sections
+  scale_fill_viridis_d(option = "plasma") +  # Use Viridis "inferno" palette
+  labs(title = "Graduate Domestic vs International Students Over Time",
+       x = "Year", y = "Percent", fill = "Category") +
+  theme_minimal() +
+  theme(legend.position = "right")
+
+ggplotly(G_resident_nonresident)
+
+
+```
+
+The number of international students has remained relatively consistent, with marginal increases over time. However, the university will need to adjust as the country becomes more hostile to our international community. To be able to see the trends thus far through data visualization, we will be able to clearly represent the impact that administrative changes from the federal government have on the university in a range of capacities. Yet, the fact that BU is a global, international, and diverse institution cannot be understated.

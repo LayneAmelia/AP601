@@ -7,6 +7,7 @@ sidebar:
     - Students.qmd
     - Admissions.qmd
 ---
+
 College application season is a stressful time for high school seniors. As schools get more selective, transparency in the process helps students from all backgrounds understand what is happening in the admissions landscape!
 
 # Rates
@@ -45,6 +46,7 @@ p <- ggplot(df_long, aes(x = factor(year), y = Total, fill = Category)) +
 
 ggplotly(p)
 ```
+
 The evident trend is that the number of applicants is climbing while the admissions and enrollments hover around the same value. We live in a society where prestige and selectivity is more important than educational quality and personal "fit." Every year, schools get more selective and acceptance rates drop, much to the delight of the institutions who are eager to flaunt their low acceptance rates. Yet, this is because more students are applying to universities, all of whom competing for a small number of spots. Many highly capable students are being rejected, not due to their merit, but due to the large volume of applications. To this end, the college admissions process has become less about working hard and getting good grades, and more about gaming the system in order to stand out among an ocean of other applicants with good grades.
 
 # Gender
@@ -139,8 +141,8 @@ ggplotly(p)
 
 
 ```
-For a period of time between 2001 and 2017, acceptance rates were always higher for women. In recent years, this has flipped, while the university's yield predictions have been rather stable.
-For women, the acceptance rate peaked in 2011 at ~60% and was at its lowest 15% in 2021 (based on this dataset). In just 10 years, the acceptance rate has quartered!
+
+For a period of time between 2001 and 2017, acceptance rates were always higher for women. In recent years, this has flipped, while the university's yield predictions have been rather stable. For women, the acceptance rate peaked in 2011 at \~60% and was at its lowest 15% in 2021 (based on this dataset). In just 10 years, the acceptance rate has quartered!
 
 ```{r admit, message=FALSE, warning=FALSE}
 
@@ -165,8 +167,8 @@ a <- ggplot(df_admit_long , aes(x = factor(year), y = Count, fill = Gender)) +
 ggplotly(a)
 
 ```
-We can see that the number of women applying to BU is significantly higher than the number of men, with the difference increasing over time. The student body is predominantly female, and the predominantly male faculty body does not represent the students. 
 
+We can see that the number of women applying to BU is significantly higher than the number of men, with the difference increasing over time. The student body is predominantly female, and the predominantly male faculty body does not represent the students.
 
 ```{r class,message=FALSE, warning=FALSE}
 
@@ -192,4 +194,9 @@ ggplotly(enroll_stacked)
 
 
 ```
+
 The highest enrollment in recent years was in 2021, which marked Boston University's return to in-person learning following the COVID-19 pandemic. This large class is graduating this year, in 2025, and the size of the class has led to tickets being required at commencement for the first time. However, there were more students enrolled in the 2011 class, so it is a bit odd that the university has stressed that the class of 2025 is enormous when in it in line with the class sizes of the 2000s.
+
+# Conclusions
+
+College admissions are becoming more complicated and more competitive. Women are dominating admissions and acceptances, and the process is becoming more challenging to navigate!
