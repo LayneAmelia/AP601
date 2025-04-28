@@ -311,3 +311,194 @@ ggplotly(G_resident_nonresident)
 ```
 
 The number of international students has remained relatively consistent, with marginal increases over time. However, the university will need to adjust as the country becomes more hostile to our international community. To be able to see the trends thus far through data visualization, we will be able to clearly represent the impact that administrative changes from the federal government have on the university in a range of capacities. Yet, the fact that BU is a global, international, and diverse institution cannot be understated.
+
+# Majors
+
+CIP Codes are part of the Classification of Instructional Programs system. There are 61 2 digit codes, and then additional 4 digit codes that provide specificity.
+
+As an example, a BA in Computer Science from BU has the code 11.0701, which 11 marking the Computer and Information Sciences field.
+
+Below, I will analyze the following codes for degree completions each year.
+
+-   09 - Communication and Journalism
+
+-   11 - Computer and Information Sciences
+
+-   13 - Education
+
+-   14 - Engineering
+
+-   16 - Foreign Languages, Literatures, Linguistics
+
+-   23 - English Language and Literature
+
+-   26 - Biological and Biomedical Sciences
+
+-   27 - Mathematics and Statistics
+
+-   38 - Philosophy and Religious Studies
+
+-   40 - Physical Sciences
+
+-   42 - Psychology
+
+-   45 - Social Sciences
+
+-   50 - Visual and Performing Arts
+
+-   52 - Business, Management, Marketing
+
+```{r stumaj, message=FALSE, warning=FALSE}
+
+
+suppressMessages(suppressWarnings(library(tidyverse)))
+suppressMessages(suppressWarnings(library(stringr)))
+suppressMessages(suppressWarnings(library(tidyr)))
+suppressMessages(suppressWarnings(library(ggplot2)))
+suppressMessages(suppressWarnings(library(dplyr)))
+suppressMessages(suppressWarnings(library(ggthemes)))
+suppressMessages(suppressWarnings(library(hrbrthemes)))
+suppressMessages(suppressWarnings(library(plotly)))
+suppressMessages(suppressWarnings(library(scales)))
+
+
+data <- read_csv("Stu.CID.01.csv")
+
+bachelor_data <- data %>%
+  select(Year, contains("Bachelor"))
+
+bachelor_long <- bachelor_data %>%
+  pivot_longer(-Year, names_to = "Group", values_to = "Count") %>%
+  separate(Group, into = c("Gender", "Degree", "Field"), sep = "\\. ") %>%
+  filter(Degree == "Bachelor")
+CIDPLOT <- ggplot(bachelor_long, aes(x = Year, y = Count, color = Gender)) +
+  geom_line(size = 1.2) +
+  geom_point(size = 2) +
+  scale_color_manual(values = c(
+  "Women" = "#905acd",
+  "Men" = "#20B2AA" 
+)) +
+  facet_wrap(~ Field, scales = "free_y") +
+  labs(title = "Bachelor Degrees by Field and Gender",
+       y = "Number of Degrees",
+       x = "Year") +
+  theme_minimal()+
+    theme(
+    strip.text = element_text(size = 6)
+  )
+
+ggplotly(CIDPLOT)
+
+
+```
+
+Many degree programs have a significant underrepresentation of men and women. Men are notably underrepresented in the arts, communications/journalism, education, and psychology. Women are underrepresented in computer science and engineering– which are the higher paying fields. There have been pushes in recent years to have more women in STEM fields, but the these graphs do not reveal any notable increase in women where there is not a corresponding increase in men, ie. more people are majoring in that field, not only women. We also see that the number of men is constant in the fields they are underrepresented in.
+
+Computer science, biological and biomedical sciences, and mathematics and statistics are increasing in popularity, while English, Philosophy and Religion, and Education are decreasing in popularity.
+
+In 2018, Boston University and Wheelock College merged together to create a school with the research and doctoral programs from BU's School of Education and the early childhood education and specialized pedagogy of Wheelock in one program. Following the merger, the number of education degrees awarded decreased.
+
+Before the merger, BU offered an array of majors related to education, including a BS in Deaf Studies, BS in Early Childhood Education, BS in Elementary Education, BS in English Education, BS in Mathematics Education, BS in Science Education, BS in Social Studies Education, BS in Special Education, and a BS in Foreign Language Education. In Fall of 2022, BU consolidated all of these majors into the BS in Education & Human Development, which then has tracks based on student interests, and clearly focused in on the Master's and EdD programs in education rather than the Bachelors programs that Wheelock College was known for. Furthermore, the number of Master's degrees awarded in Education remains around five times the number of Bachelor's degrees awarded in Education.
+
+```{r stumas, message=FALSE, warning=FALSE}
+
+
+suppressMessages(suppressWarnings(library(tidyverse)))
+suppressMessages(suppressWarnings(library(stringr)))
+suppressMessages(suppressWarnings(library(tidyr)))
+suppressMessages(suppressWarnings(library(ggplot2)))
+suppressMessages(suppressWarnings(library(dplyr)))
+suppressMessages(suppressWarnings(library(ggthemes)))
+suppressMessages(suppressWarnings(library(hrbrthemes)))
+suppressMessages(suppressWarnings(library(plotly)))
+suppressMessages(suppressWarnings(library(scales)))
+
+
+data <- read_csv("Stu.CID.01.csv")
+
+master_data <- data %>%
+  select(Year, contains("Master"))
+
+master_long <- master_data %>%
+  pivot_longer(-Year, names_to = "Group", values_to = "Count") %>%
+  separate(Group, into = c("Gender", "Degree", "Field"), sep = "\\. ") %>%
+  filter(Degree == "Master")
+MASPLOT <- ggplot(master_long, aes(x = Year, y = Count, color = Gender)) +
+  geom_line(size = 1.2) +
+scale_color_manual(values = c(
+  "Women" = "#905acd",
+  "Men" = "#20B2AA" 
+)) +
+  geom_point(size = 2) +
+  facet_wrap(~ Field, scales = "free_y") +
+  labs(title = "Master Degrees by Field and Gender",
+       y = "Number of Degrees",
+       x = "Year") +
+  theme_minimal()+
+    theme(
+    strip.text = element_text(size = 6)
+  )
+
+ggplotly(MASPLOT)
+
+```
+
+Many of the same trends are present for Master's Programs, but there are some discrepancies.
+
+One of the notable differences is in the Business, Management, and Marketing CID code. After being renamed from School of Management (SMG) to Questrom School of Business in 2015, the branding and marketing for programs has transitioned, which may explain the visibly exponential increase in Master's students in Business programs. The slogan "Questrom Means Business" is omnipresent in and out of BU, with advertisements on the MBTA and on sponsored Google searches. The Part-Time Flex MBA is growing in popularity, and is something that BU is clearly pushing for more students in, especially since the curriculum is accessible for working professionals!
+
+```{r stutot, message=FALSE, warning=FALSE}
+
+
+suppressMessages(suppressWarnings(library(tidyverse)))
+suppressMessages(suppressWarnings(library(stringr)))
+suppressMessages(suppressWarnings(library(tidyr)))
+suppressMessages(suppressWarnings(library(ggplot2)))
+suppressMessages(suppressWarnings(library(dplyr)))
+suppressMessages(suppressWarnings(library(ggthemes)))
+suppressMessages(suppressWarnings(library(hrbrthemes)))
+suppressMessages(suppressWarnings(library(plotly)))
+suppressMessages(suppressWarnings(library(scales)))
+
+
+
+
+data <- read_csv("Stu.CID.01.csv")
+
+
+long_data <- data %>%
+  pivot_longer(
+    cols = -Year,
+    names_to = "Category",
+    values_to = "Count"
+  ) %>%
+  separate(Category, into = c("Gender", "DegreeType", "Field"), sep = "\\. ", extra = "merge") 
+
+long_data_clean <- long_data %>%
+  filter(!is.na(Count))
+
+summed_field_year <- long_data_clean %>%
+  group_by(Year, Field) %>%
+  summarize(Total = sum(Count, na.rm = TRUE)) %>%
+  ungroup()
+
+total <- ggplot(summed_field_year, aes(x = Year, y = Total, color = Field)) +
+  geom_line(size = 0.5) +
+  geom_point(size = 1) +
+  labs(title = "Trends in Degrees Awarded by Field",
+       x = "Year",
+       y = "Total Degrees Awarded") +
+  theme_minimal()
+
+ggplotly(total)
+```
+
+Many fields have not changed in popularity over time; yet some have increased and decreased with societal pressures.
+
+We see that the stereotypically "high paying" fields are increasing the most. As BU's cost of tuition has increased, the return on investment is a key piece in deciding where to go to college. With a degree that is perceived as less valuable, it is more difficult to justify the high tuition rates. Yet, with a degree in Business, Biology, Engineering, and Computer Science, high salaries are more likely. Computer Science in particular has seen a drastic increase. In 2006, 255 degrees were awarded in Computer Science in 2023, 1093 degrees were awarded. CS is also currently the largest major in the College of Arts & Sciences!
+
+Education is the only field with a noted decrease.
+
+# Conclusion
+
+The student body is diverse. In terms of where they call home, what they study, what they identify as, and what path they are on, BU brings together many different students under the same goal of spreading knowledge.

@@ -3,38 +3,52 @@ title: "References"
 format: html
 ---
 
-Boston University Office of Government & Community Affairs. (n.d.). *Boston University basics*. Boston University. <https://www.bu.edu/federal/for-policymakers/boston-university-basics/>
-
-Boston University. (n.d.). *Presidents*. BU Timeline. <https://www.bu.edu/timeline/category/presidents/>
-
-Boston University. (n.d.). *Strategic plan: Choosing our future—BU 2015*. <https://www.bu.edu/plan2015/>
-
-Boston University. (n.d.). *Notable history*. Diversity & Inclusion at BU. <https://www.bu.edu/diversity/about/notable-history/>
-
 Association of American Universities. (n.d.). *AAU member universities by year of entry*. <https://www.aau.edu/who-we-are/our-members/aau-member-universities-year-entry>
 
-Jahnke, A. (2019, August 15). BU boosts financial aid to 100 percent of calculated need. *BU Today*. <https://www.bu.edu/articles/2019/bu-boosts-financial-aid/>
+Boston University. (2017). *BU Wheelock merger*. *Bostonia*. <https://www.bu.edu/bostonia/2017/bu-wheelock-merger/>
 
-Woolhouse, M. (2022, March 22). BU is making standardized tests optional for undergrad applicants for third consecutive year. *BU Today*. <https://www.bu.edu/articles/2022/standardized-tests-optional-for-third-consecutive-year/>
+Boston University. (2018). *BU Wheelock: A new era in education*. *Bostonia*. <https://www.bu.edu/bostonia/summer18/wheelock-college/>
+
+Boston University. (n.d.). *Academic programs*. Boston University Office of the University Registrar. <https://www.bu.edu/reg/academics/programs/>
 
 Boston University. (n.d.). *Equal opportunity/affirmative action policy (non-handbook version)*. Boston University. <https://www.bu.edu/policies/non-handbook-version-equal-opp-affirm-action/>
 
+Boston University. (n.d.). *Mission statement*. Boston University. <https://www.bu.edu/about/mission-statement/>
+
+Boston University. (n.d.). *Notable history*. Diversity & Inclusion at BU. <https://www.bu.edu/diversity/about/notable-history/>
+
+Boston University. (n.d.). *Presidents*. *BU Timeline*. <https://www.bu.edu/timeline/category/presidents/>
+
+Boston University. (n.d.). *Strategic plan: Choosing our future—BU 2015*. <https://www.bu.edu/plan2015/>
+
+Boston University. (n.d.). *Wheelock College of Education & Human Development: Academic programs*. <https://www.bu.edu/academics/wheelock/programs/>
+
 Boston University. (2024). *Interim equal opportunity & Title IX policy*. Boston University. <https://www.bu.edu/policies/interim-equal-opportunity-and-title-ix-policy/>
+
+Boston University International Students & Scholars Office. (2023, September). *CIP STEM codes & BU majors*. <https://www.bu.edu/isso/files/2023/09/CIP-STEM-Codes-BU-Majors-September-2023.pdf>
+
+Boston University Office of Government & Community Affairs. (n.d.). *Boston University basics*. Boston University. <https://www.bu.edu/federal/for-policymakers/boston-university-basics/>
+
+Dittmar, L. (2015, March 31). *School of Management renamed Questrom School of Business*. *The Daily Free Press*. <https://dailyfreepress.com/2015/03/31/school-of-management-renamed-questrom-school-of-business/>
+
+Jahnke, A. (2019, August 15). *BU boosts financial aid to 100 percent of calculated need*. *BU Today*. <https://www.bu.edu/articles/2019/bu-boosts-financial-aid/>
 
 Simes, T. (2024, March 25). *Drop in Black students enrolled after Supreme Court affirmative action ruling*. Boston University. <https://www.bu.edu/articles/2024/drop-in-black-students-enrolled-after-supreme-court-affirmative-action-ruling/>
 
+U.S. Department of Education, National Center for Education Statistics. (2023). *Table 318.10: Degree-granting postsecondary institutions, by control and level of institution: Selected years, 1949–50 through 2022–23*. *Digest of Education Statistics*. <https://nces.ed.gov/programs/digest/d23/tables/dt23_318.10.asp>
+
+U.S. Department of Education, National Center for Education Statistics. (2025, April 12). *Integrated Postsecondary Education Data System (IPEDS), Fall 2012–Fall 2023: Full-time instructional staff by academic rank, faculty and tenure status, race/ethnicity, and gender*. <https://nces.ed.gov/ipeds/datacenter/>
+
+U.S. Department of Education, National Center for Education Statistics. (2025, April 12). *Integrated Postsecondary Education Data System (IPEDS), Fall 1980–Spring 2012: Salaries of full-time non-medical instructional staff, academic year 1980–81 to 2011–12*. <https://nces.ed.gov/ipeds/datacenter/>
+
+U.S. Department of Education, National Center for Education Statistics. (2025, April 19). *Integrated Postsecondary Education Data System (IPEDS), 2002–2024: Total cost of attendance*. <https://nces.ed.gov/ipeds/datacenter/>
+
+U.S. Department of Education, National Center for Education Statistics. (2025, April 19). *Integrated Postsecondary Education Data System (IPEDS), 2002–2024: Student financial aid of full-time first-time degree/certificate-seeking undergraduate students*. <https://nces.ed.gov/ipeds/datacenter/>
+
+U.S. Department of Education, National Center for Education Statistics. (2025, April 20). *Integrated Postsecondary Education Data System (IPEDS), 2002–2024: Admissions and test scores—Number of applications, admissions, and enrollees*. <https://nces.ed.gov/ipeds/datacenter/>
+
+U.S. Department of Education, National Center for Education Statistics. (2025, April 20). *Integrated Postsecondary Education Data System (IPEDS), 2001–2023: Awards/degrees conferred by program, award level, race/ethnicity, and gender*. <https://nces.ed.gov/ipeds/datacenter/>
+
 U.S. News & World Report. (2024). *Most international students: National universities rankings*. <https://www.usnews.com/best-colleges/rankings/national-universities/most-international>
 
-U.S. Department of Education, National Center for Education Statistics. (2023). *Table 318.10: Degree-granting postsecondary institutions, by control and level of institution: Selected years, 1949–50 through 2022–23*. Digest of Education Statistics. <https://nces.ed.gov/programs/digest/d23/tables/dt23_318.10.asp>
-
-U.S. Department of Education, National Center for Education Statistics. (2025, April 12). *Integrated Postsecondary Education Data System (IPEDS), Fall 2012–Fall 2023: Full-time instructional staff by academic rank, faculty and tenure status, race/ethnicity, and gender*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
-
-U.S. Department of Education, National Center for Education Statistics. (2025, April 12). *Integrated Postsecondary Education Data System (IPEDS), Fall 1980–Spring 2012: Salaries of full-time non-medical instructional staff, academic year 1980–81 to 2011–12*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
-
-U.S. Department of Education, National Center for Education Statistics. (2025, April 19). *Integrated Postsecondary Education Data System (IPEDS), 2002–2024: Total cost of attendance*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
-
-U.S. Department of Education, National Center for Education Statistics. (2025, April 19). *Integrated Postsecondary Education Data System (IPEDS), 2002–2024: Student financial aid of full-time first-time degree/certificate-seeking undergraduate students*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
-
-U.S. Department of Education, National Center for Education Statistics. (2025, April 20). *Integrated Postsecondary Education Data System (IPEDS), 2002–2024: Admissions and test scores—Number of applications, admissions, and enrollees*. Retrieved from <https://nces.ed.gov/ipeds/datacenter/>
-
-<https://www.bu.edu/about/mission-statement/>
+Woolhouse, M. (2022, March 22). *BU is making standardized tests optional for undergrad applicants for third consecutive year*. *BU Today*. <https://www.bu.edu/articles/2022/standardized-tests-optional-for-third-consecutive-year/>

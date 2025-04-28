@@ -86,7 +86,7 @@ interactive_gender_plot
 
 However, in 1979, the number of PhDs awarded per year would reach 95,631, soon to hit six digits from which it would never again decrease. Steadily and consistently, the percentage of female PhD recipients would increase from 29.0% in 1980 to then exceed 50% in 2006. Women are predicted to be the majority of PhD recipients in projections.
 
-Yet, the "leaky pipeline" phenomenon is evident here. Women are remaining as junior faculty and the tenured faculty positions remain predominantly male. We can see a push to hire women at the assistant professor level beginning in around 2015. Yet, the tenure process is typically 6-7 years, so we would expect to see that the number of female associate professors begins to increase in around 2020. Evidently, women are not achieving tenure, despite nearly a double in the number of assistant professors who are women.
+Yet, the "leaky pipeline" phenomenon is evident here. Women are remaining as junior faculty and the tenured faculty positions remain predominantly male. We can see a push to hire women at the assistant professor level beginning in around 2015. Yet, the tenure process is typically 6-7 years, so we would expect to see that the number of female associate professors begins to increase in around 2020. Evidently, women are not achieving tenure, despite nearly a double in the number of assistant professors who are women, which could be attributed to those individuals not being retained or due to possible biases or issues with the tenure process.
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 
