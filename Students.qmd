@@ -372,8 +372,8 @@ bachelor_long <- bachelor_data %>%
   separate(Group, into = c("Gender", "Degree", "Field"), sep = "\\. ") %>%
   filter(Degree == "Bachelor")
 CIDPLOT <- ggplot(bachelor_long, aes(x = Year, y = Count, color = Gender)) +
-  geom_line(size = 1.2) +
-  geom_point(size = 2) +
+  geom_line(size = 0.5) +
+  geom_point(size = 1) +
   scale_color_manual(values = c(
   "Women" = "#905acd",
   "Men" = "#20B2AA" 
@@ -424,12 +424,12 @@ master_long <- master_data %>%
   separate(Group, into = c("Gender", "Degree", "Field"), sep = "\\. ") %>%
   filter(Degree == "Master")
 MASPLOT <- ggplot(master_long, aes(x = Year, y = Count, color = Gender)) +
-  geom_line(size = 1.2) +
+  geom_line(size = 0.5) +
 scale_color_manual(values = c(
   "Women" = "#905acd",
   "Men" = "#20B2AA" 
 )) +
-  geom_point(size = 2) +
+  geom_point(size = 1) +
   facet_wrap(~ Field, scales = "free_y") +
   labs(title = "Master Degrees by Field and Gender",
        y = "Number of Degrees",
